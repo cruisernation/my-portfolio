@@ -30,7 +30,7 @@ export default function Contact() {
         </form>
 
         <div className="contact-links fade-up">
-          <a href="abdulhamidoshiomah@gmail.com" className="btn icon-btn">
+          <a href="mailto:abdulhamidoshiomah@gmail.com" className="btn icon-btn">
             <FiMail size={18} />
             Email Me
           </a>
