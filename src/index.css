@@ -633,8 +633,8 @@ button {
 }
 
 .hamburger {
-  width: 32px;
-  height: 24px;
+  width: 28px;
+  height: 20px;
   display: none;
   flex-direction: column;
   justify-content: space-between;
