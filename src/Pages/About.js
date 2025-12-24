@@ -23,7 +23,7 @@ export default function About() {
           {/* CV Download Button */}
           <div style={{ marginTop: '20px' }}>
             <a
-              href="/assets/Aneru-CV.pdf"
+              href="/assets/ANERU-CV.pdf"
               download="Aneru-CV.pdf"
               className="btn"
               style={{
