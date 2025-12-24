@@ -70,15 +70,6 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* Space to Add / Update Projects */}
-      <div className="add-project-space fade-in">
-        <h3>New Project Coming Soon</h3>
-        <p>
-          This section is ready for your next project. Simply add a new card above
-          to showcase it when ready.
-        </p>
-      </div>
-
       {/* Portfolio Grid */}
       <div className="portfolio-grid">
         {filtered.map((p, i) => (
