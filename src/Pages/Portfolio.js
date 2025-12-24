@@ -29,7 +29,7 @@ const PROJECTS = [
     title: "Content & Thought Leadership @_shadowofweb3",
     category: "Content",
     summary:
-      "Web3 threads, product breakdowns, technical explanations, and community-driven content.",
+      "Web3 threads, product breakdowns, technical explanations, and community driven content.",
     details:
       "My X (Twitter) profile highlights consistent Web3 insights, narrative breakdowns, technical discussions, content strategy, and brand clarity posts blending code, blockchain, and communication.",
     link: "https://x.com/_shadowofweb3",
