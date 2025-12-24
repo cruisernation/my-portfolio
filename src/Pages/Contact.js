@@ -1,6 +1,7 @@
 import React from "react";
 import { FiMail, FiMapPin } from "react-icons/fi";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Contact() {
   return (
@@ -75,6 +76,16 @@ export default function Contact() {
           >
             <FaGithub size={18} />
             GitHub
+          </a>
+
+          <a
+            href="https://x.com/_shadowofweb3"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn icon-btn x-btn"
+          >
+            <FaXTwitter size={18} />
+            X (Twitter)
           </a>
         </div>
       </div>
