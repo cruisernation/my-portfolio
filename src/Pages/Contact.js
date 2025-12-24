@@ -56,26 +56,26 @@ export default function Contact() {
           </button>
         </form>
 
-        {/* Social Links */}
+        {/* Social Icons */}
         <div className="contact-links fade-up">
           <a
             href="https://www.linkedin.com/in/abdulhamid-aneru-a0b5b2235"
             target="_blank"
             rel="noopener noreferrer"
             className="btn icon-btn linkedin-btn"
+            aria-label="LinkedIn"
           >
             <FaLinkedinIn size={18} />
-            LinkedIn
           </a>
 
           <a
             href="https://github.com/cruisernation"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn icon-btn-btn"
+            className="btn icon-btn github-btn"
+            aria-label="GitHub"
           >
             <FaGithub size={18} />
-            GitHub
           </a>
 
           <a
@@ -83,9 +83,9 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn icon-btn x-btn"
+            aria-label="X (Twitter)"
           >
             <FaXTwitter size={18} />
-            X (Twitter)
           </a>
         </div>
       </div>
