@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
-import { FiExternalLink, FiChevronDown, FiLink } from "react-icons/fi";
+import React, { useState } from "react";
+import { FiExternalLink } from "react-icons/fi";
 import { FaCubes, FaCode, FaPenNib } from "react-icons/fa6";
 
 const PROJECTS = [
   {
-    id: "web3 coming soon",
+    id: "web3-coming-soon",
     title: "Web3 Case Studies Coming Soon",
     category: "Web3",
     summary:
@@ -39,88 +39,47 @@ const PROJECTS = [
 export default function Portfolio() {
   const [filter, setFilter] = useState("All");
   const [selected, setSelected] = useState(null);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
 
   const categories = ["All", "Web3", "Frontend", "Content"];
-  const filtered = PROJECTS.filter((p) => filter === "All" || p.category === filter);
-
-  const liveLinks = filtered.filter((p) => p.link && !p.comingSoon);
-
-  useEffect(() => {
-    function onDocClick(e) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setDropdownOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", onDocClick);
-    return () => document.removeEventListener("mousedown", onDocClick);
-  }, []);
+  const filtered = PROJECTS.filter(
+    (p) => filter === "All" || p.category === filter
+  );
 
   return (
     <section className="portfolio-section">
+      {/* Portfolio Header */}
       <div className="portfolio-header">
         <div>
-          <h2 className="section-title">Portfolio</h2>      
+          <h2 className="section-title">Portfolio</h2>
           <p className="section-sub">
-            A curated mix of frontend builds, strategic content, and upcoming Web3 case studies.
+            A curated mix of frontend builds, strategic content, and upcoming Web3
+            case studies.
           </p>
         </div>
 
-        <div className="portfolio-actions" ref={dropdownRef}>
-          <div className="filter-row">
-            {categories.map((c) => (
-              <button
-                key={c}
-                className={`pill ${filter === c ? "active" : ""}`}
-                onClick={() => setFilter(c)}
-              >
-                {c}
-              </button>
-            ))}
-          </div>
-
-          {/* Live Projects button (replaces PDF area) */}
-          <div className="live-area">
+        <div className="filter-row">
+          {categories.map((c) => (
             <button
-              className={`live-btn ${liveLinks.length === 0 ? "disabled" : ""}`}
-              onClick={() => liveLinks.length > 0 && setDropdownOpen((s) => !s)}
-              aria-haspopup="menu"
-              aria-expanded={dropdownOpen}
-              title={liveLinks.length === 0 ? "No live projects in this view" : "View live projects"}
+              key={c}
+              className={`pill ${filter === c ? "active" : ""}`}
+              onClick={() => setFilter(c)}
             >
-              <FiLink className="live-icon" />
-              <span className="live-text">Live Projects</span>
-              <FiChevronDown className={`chev ${dropdownOpen ? "open" : ""}`} />
+              {c}
             </button>
-
-            {/* Dropdown list of live links */}
-            {dropdownOpen && liveLinks.length > 0 && (
-              <div className="live-dropdown" role="menu">
-                {liveLinks.map((p) => (
-                  <a
-                    key={p.id}
-                    className="live-item"
-                    href={p.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    role="menuitem"
-                  >
-                    <div className="live-item-left">
-                      <FiExternalLink />
-                    </div>
-                    <div className="live-item-body">
-                      <div className="live-item-title">{p.title}</div>
-                      <div className="live-item-sub">{new URL(p.link).hostname}</div>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
+          ))}
         </div>
       </div>
 
+      {/* Space to Add / Update Projects */}
+      <div className="add-project-space fade-in">
+        <h3>New Project Coming Soon</h3>
+        <p>
+          This section is ready for your next project. Simply add a new card above
+          to showcase it when ready.
+        </p>
+      </div>
+
+      {/* Portfolio Grid */}
       <div className="portfolio-grid">
         {filtered.map((p, i) => (
           <article
@@ -134,7 +93,13 @@ export default function Portfolio() {
           >
             <div className="card-top">
               <div className="card-icon">
-                {p.category === "Web3" ? <FaCubes /> : p.category === "Frontend" ? <FaCode /> : <FaPenNib />}
+                {p.category === "Web3" ? (
+                  <FaCubes />
+                ) : p.category === "Frontend" ? (
+                  <FaCode />
+                ) : (
+                  <FaPenNib />
+                )}
               </div>
               <h3 className="project-title">{p.title}</h3>
             </div>
@@ -143,14 +108,13 @@ export default function Portfolio() {
 
             <div className="card-meta">
               <span className="tag">{p.category}</span>
-
               {!p.comingSoon && (
                 <a
                   className="project-live-link"
                   href={p.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()} // avoid opening modal if clicking link
+                  onClick={(e) => e.stopPropagation()}
                 >
                   Visit live <FiExternalLink />
                 </a>
@@ -160,14 +124,19 @@ export default function Portfolio() {
         ))}
       </div>
 
+      {/* Modal */}
       {selected && (
         <div className="modal-backdrop" onClick={() => setSelected(null)}>
           <div className="modal-card" onClick={(e) => e.stopPropagation()} role="dialog">
             <div className="modal-head">
               <h3>{selected.title}</h3>
-
               {selected.link && (
-                <a className="modal-live-cta" href={selected.link} target="_blank" rel="noreferrer">
+                <a
+                  className="modal-live-cta"
+                  href={selected.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Visit Live Project <FiExternalLink />
                 </a>
               )}
