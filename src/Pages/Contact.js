@@ -1,6 +1,6 @@
-import React from 'react';
-import { FiMail } from "react-icons/fi";
-import { FaXTwitter } from "react-icons/fa6";
+import React from "react";
+import { FiMail, FiMapPin } from "react-icons/fi";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 export default function Contact() {
   return (
@@ -8,41 +8,73 @@ export default function Contact() {
       <h2 className="section-title">Contact Me</h2>
 
       <div className="card contact-card fade-in">
-        
         <p className="contact-text">
-          If it lives in your mind, we can build it. Drop a brief or reach out to me ;
+          If it lives in your mind, we can build it. Drop a brief or reach out to me.
         </p>
 
-        <form 
+        {/* Location */}
+        <div className="contact-location">
+          <FiMapPin size={16} />
+          <span>Lagos, Nigeria</span>
+        </div>
+
+        {/* Email Form */}
+        <form
           className="contact-form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            alert('Thanks! Message sent (simulated).');
-          }}
+          action="mailto:abdulhamidoshiomah@gmail.com"
+          method="POST"
+          encType="text/plain"
         >
-          <input type="text" placeholder="Your name" className="input-field" />
-          <input type="email" placeholder="Email" className="input-field" />
-          <textarea placeholder="Brief" rows={4} className="input-field" />
+          <input
+            type="text"
+            name="name"
+            placeholder="Your name"
+            className="input-field"
+            required
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            className="input-field"
+            required
+          />
+
+          <textarea
+            name="message"
+            placeholder="Brief"
+            rows={4}
+            className="input-field"
+            required
+          />
 
           <button className="btn form-btn" type="submit">
-            Send message
+            <FiMail size={16} />
+            Send Message
           </button>
         </form>
 
+        {/* Social Links */}
         <div className="contact-links fade-up">
-          <a href="mailto:abdulhamidoshiomah@gmail.com" className="btn icon-btn">
-            <FiMail size={18} />
-            Email Me
-          </a>
-
-          <a 
-            href="https://x.com/_shadowofweb3"
+          <a
+            href="https://www.linkedin.com/in/abdulhamid-aneru-a0b5b2235"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn x-btn icon-btn"
+            className="btn icon-btn linkedin-btn"
           >
-            <FaXTwitter size={18} />
-            X (Twitter)
+            <FaLinkedinIn size={18} />
+            LinkedIn
+          </a>
+
+          <a
+            href="https://github.com/cruisernation"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn icon-btn github-btn"
+          >
+            <FaGithub size={18} />
+            GitHub
           </a>
         </div>
       </div>
