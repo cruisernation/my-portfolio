@@ -27,7 +27,7 @@ export default function Services() {
         <h2 className="section-title">Services</h2>
         <p className="section-sub">
           Specialized services at the intersection of Web3, frontend engineering,
-          and digital operations — built to support founders, startups, and teams.
+          and digital operations built to support founders, startups, and teams.
         </p>
       </div>
 
