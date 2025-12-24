@@ -2,39 +2,36 @@ import React from 'react';
 
 export default function About() {
   return (
-    <section style={{ paddingTop: 40, paddingBottom: 40 }}>
+    <section className="about-section" style={{ padding: '60px 20px' }}>
       <h2 className="section-title">About</h2>
-      <div className="about">
-        <div style={{ flex: 2 }}>
-          <p style={{ marginBottom: 14 }}>
-            I'm <strong>Aneru Abdulhamid Oshiomah</strong> & <span style={{ color: 'var(--accent)' }}>@_shadowofweb3</span> on X (formerly Twitter), a content writer and frontend developer. I combine clear communication, technical skills and product-focused storytelling.
+
+      <div className="about-container">
+        {/* Left Column: Text */}
+        <div className="about-text">
+          <p>
+            I'm <strong>Aneru Abdulhamid Oshiomah</strong> (<span style={{ color: 'var(--accent)' }}>@_shadowofweb3</span>) on X (formerly Twitter), a content writer, frontend developer, and virtual assistant. I combine clear communication, technical skills, and product-focused storytelling to deliver value.
           </p>
-          <p style={{ marginBottom: 14 }}>
-            I work in web3 ecosystem, SaaS platforms, and emerging technology. I create everything from content for developers to user-focused experiences. Whether I'm writing or building, my goal is the same: turn complex ideas into clear products and products into smooth user experiences.
+          <p>
+            Based in <strong>Lagos, Nigeria</strong>, I work across Web3, SaaS, and emerging tech. I create everything from developer-focused content to user-centric experiences. Whether writing or building, my goal is the same: turn complex ideas into clear products and seamless experiences.
           </p>
-          <p style={{ marginBottom: 14 }}>
-            When you work with me, you get a professional who understands both the "message" and the "medium". I know the engineering behind the screen and the words that guide the user.
+          <p>
+            Working with me means partnering with a professional who understands both the "message" and the "medium." I bridge engineering and storytelling to guide users effectively.
           </p>
 
-          <div style={{ marginTop: 20 }}>
-            <a
-              href="/assets/Aneru-CV.pdf"
-              download
-              className="btn"
-            >
-              Download CV
-            </a>
-          </div>
+          <a href="/assets/Aneru-CV.pdf" download className="btn download-cv">
+            Download CV
+          </a>
         </div>
 
-        <div style={{ flex: 1 }}>
+        {/* Right Column: Profile */}
+        <div className="about-profile">
           <img src="./assets/my-pfp.jpg" alt="profile" className="profile-img" />
-          <div style={{ marginTop: 14 }}>
-            <div style={{ fontWeight: 700 }}>Quick facts</div>
-            <ul style={{ marginTop: 8, color: 'var(--muted)' }}>
-              <li>Hybrid: Frontend Engineer x Copywriter</li>
+          <div className="quick-facts">
+            <h4>Quick Facts</h4>
+            <ul>
+              <li>Hybrid: Frontend Engineer & Copywriter</li>
               <li>Clients: Web3, Startups & Modern Tech</li>
-              <li>Value: Precision • Clarity • Consistency</li>
+              <li>Core Values: Precision • Clarity • Consistency</li>
             </ul>
           </div>
         </div>
