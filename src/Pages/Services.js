@@ -22,7 +22,7 @@ export default function Services() {
   ];
 
   return (
-    <section className="services-section" style={{ marginTop: "64px" }}>
+    <section className="services-section" style={{ marginTop: "58px" }}>
       <div className="services-header">
         <h2 className="section-title">Services</h2>
         <p className="section-sub">
