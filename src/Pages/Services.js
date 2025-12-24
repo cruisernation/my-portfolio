@@ -1,33 +1,33 @@
 import React from "react";
-import { FiCode, FiPenTool, FiCpu, FiArrowRight } from "react-icons/fi";
+import { FiLayers, FiCode, FiPenTool, FiArrowRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 export default function Services() {
   const services = [
     {
-      icon: <FiPenTool size={26} />,
-      title: "Web3 Content Writing & Documentation",
-      desc: "Clear, credible, and conversion-focused content for Web3 products. Includes whitepapers, litepapers, technical docs, onboarding content, threads, and protocol explainers.",
+      icon: <FiLayers size={26} />,
+      title: "Web3 Content & Product Writing",
+      desc: "Clear, credible communication for blockchain products — including whitepapers, documentation, token narratives, dApp explainers, and onboarding content.",
     },
     {
       icon: <FiCode size={26} />,
-      title: "Frontend Development & UI Engineering",
-      desc: "Modern React-based interfaces with clean UI systems, responsive layouts, dashboards, and landing pages built for performance, clarity, and scale.",
+      title: "Frontend Development",
+      desc: "Modern, responsive React interfaces built with clean UI systems, performance in mind, and strong UX foundations for startups and digital products.",
     },
     {
-      icon: <FiCpu size={26} />,
-      title: "Virtual Assistant for Tech & Web3 Founders",
-      desc: "Reliable virtual assistance covering research, content scheduling, documentation support, community coordination, admin tasks, and workflow organization.",
+      icon: <FiPenTool size={26} />,
+      title: "Virtual Assistance for Tech & Creators",
+      desc: "Reliable support across content management, research, documentation, inbox handling, scheduling, and operational tasks tailored for founders and teams.",
     },
   ];
 
   return (
-    <section className="services-section">
+    <section className="services-section" style={{ marginTop: "64px" }}>
       <div className="services-header">
         <h2 className="section-title">Services</h2>
         <p className="section-sub">
-          Specialized services at the intersection of Web3, frontend engineering,
-          and digital operations built to support founders, startups, and teams.
+          Specialized services designed to help Web3 products, startups, and
+          founders communicate clearly, build efficiently, and scale smoothly.
         </p>
       </div>
 
@@ -40,7 +40,7 @@ export default function Services() {
             <p className="service-desc">{s.desc}</p>
 
             <Link to="/contact" className="service-cta">
-              Let’s work together <FiArrowRight />
+              Let’s talk <FiArrowRight />
             </Link>
           </div>
         ))}
