@@ -72,7 +72,7 @@ export default function Contact() {
             href="https://github.com/cruisernation"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn icon-btn github-btn"
+            className="btn icon-btn-btn"
           >
             <FaGithub size={18} />
             GitHub
