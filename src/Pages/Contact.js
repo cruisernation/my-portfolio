@@ -1,12 +1,27 @@
-import React from "react";
+// Contact.js
+import React, { useState, useEffect } from "react";
 import { FiMail, FiMapPin } from "react-icons/fi";
 import { FaLinkedinIn, FaGithub, FaXTwitter } from "react-icons/fa";
-import TypingText from "./TypingText";
 
 export default function Contact() {
+  // Typing effect state
+  const fullText = "Contact Me";
+  const [displayedText, setDisplayedText] = useState("");
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setDisplayedText(fullText.slice(0, index + 1));
+      index++;
+      if (index === fullText.length) clearInterval(interval);
+    }, 120); // typing speed
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="contact-section">
-      <TypingText text="Contact Me" speed={120} />
+      {/* Typing Effect Heading */}
+      <h2 className="section-title">{displayedText}</h2>
 
       <div className="card contact-card fade-in">
         <p className="contact-text">
@@ -26,27 +41,9 @@ export default function Contact() {
           method="POST"
           encType="text/plain"
         >
-          <input
-            type="text"
-            name="name"
-            placeholder="Your name"
-            className="input-field"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            className="input-field"
-            required
-          />
-          <textarea
-            name="message"
-            placeholder="Brief"
-            rows={4}
-            className="input-field"
-            required
-          />
+          <input type="text" name="name" placeholder="Your name" className="input-field" required />
+          <input type="email" name="email" placeholder="Email" className="input-field" required />
+          <textarea name="message" placeholder="Brief" rows={4} className="input-field" required />
           <button className="btn form-btn" type="submit">
             <FiMail size={20} />
           </button>
