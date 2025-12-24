@@ -24,7 +24,7 @@ export default function About() {
           <div style={{ marginTop: '20px' }}>
             <a
               href="/assets/Aneru-CV.pdf"
-              download
+              download="Aneru-CV.pdf"
               className="btn"
               style={{
                 display: 'inline-block',
