@@ -7,7 +7,7 @@ export default function Services() {
     {
       icon: <FiLayers size={26} />,
       title: "Web3 Content & Product Writing",
-      desc: "Clear, credible communication for blockchain products — including whitepapers, documentation, token narratives, dApp explainers, and onboarding content.",
+      desc: "Clear, credible communication for blockchain products including whitepapers, documentation, token narratives, dApp explainers, and onboarding content.",
     },
     {
       icon: <FiCode size={26} />,
