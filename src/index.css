@@ -415,6 +415,7 @@ button {
   border-right: 3px solid var(--accent); /* cursor effect */
   white-space: nowrap;
   overflow: hidden;
+  display: inline-block;
   animation: blinkCursor 0.7s step-end infinite;
 }
 
