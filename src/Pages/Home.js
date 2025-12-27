@@ -1,162 +1,170 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+/* ==============================
+   HERO LAYOUT
+================================ */
 
-const words = ["I code.", "I build.", "I ship."];
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 56px;
+  align-items: center;
+  padding: 96px 0 72px;
+}
 
-export default function Home() {
-  const [text, setText] = useState("");
-  const [wordIndex, setWordIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 72px 0 56px;
+  }
+}
 
-  /* Typing Effect */
-  useEffect(() => {
-    const current = words[wordIndex];
-    const speed = isDeleting ? 60 : 100;
+/* ==============================
+   HERO LEFT
+================================ */
 
-    const timeout = setTimeout(() => {
-      setText((prev) =>
-        isDeleting
-          ? current.substring(0, prev.length - 1)
-          : current.substring(0, prev.length + 1)
-      );
+.hero-left {
+  max-width: 720px;
+}
 
-      if (!isDeleting && text === current) {
-        setTimeout(() => setIsDeleting(true), 800);
-      }
+.h1 {
+  font-size: clamp(34px, 4vw, 46px);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+  color: #0a1324;
+}
 
-      if (isDeleting && text === "") {
-        setIsDeleting(false);
-        setWordIndex((prev) => (prev + 1) % words.length);
-      }
-    }, speed);
+.lead {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 640px;
+  margin-bottom: 32px;
+}
 
-    return () => clearTimeout(timeout);
-  }, [text, isDeleting, wordIndex]);
+/* ==============================
+   CTA BUTTONS
+================================ */
 
-  return (
-    <section className="home-section">
-      {/* HERO */}
-      <div className="hero">
-        <div className="hero-left">
-          <h1 className="h1">
-            Web Developer focused on <span className="accent">clarity</span>,{" "}
-            <span className="accent">performance</span> &{" "}
-            <span className="accent">results</span>
-          </h1>
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
 
-          <h2 className="typing">{text}<span className="cursor">|</span></h2>
-
-          <p className="lead">
-            I design and build modern web applications with clean architecture,
-            scalable components, and performance in mind. From Web3 products to
-            everyday web solutions, I turn ideas into reliable systems.
-          </p>
-
-          <div className="hero-cta">
-            <Link to="/portfolio" className="btn">
-              View Work
-            </Link>
-            <Link to="/contact" className="btn btn-ghost">
-              Hire Me
-            </Link>
-          </div>
-        </div>
-
-        <div className="hero-right">
-          <img
-            src="/assets/main-pfp.jpeg"
-            alt="profile"
-            className="hero-img"
-          />
-        </div>
-      </div>
-
-      {/* TECH STACK */}
-      <section className="stack-section">
-        <h2 className="section-title">Tools & Stack</h2>
-        <p className="section-sub">
-          Technologies I use to build fast, maintainable, production-ready systems.
-        </p>
-
-        <div className="stack-grid">
-          {[
-            "React",
-            "JavaScript",
-            "HTML",
-            "CSS",
-            "Git",
-            "GitHub",
-            "Vercel",
-            "Machine Learning (Basics)",
-          ].map((tool, i) => (
-            <div key={i} className="stack-item">
-              {tool}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* PERFORMANCE */}
-      <section className="performance-section">
-        <h2 className="section-title">Performance-Driven Development</h2>
-        <p className="section-sub">
-          Every project is built with speed, accessibility, and scalability in mind.
-        </p>
-
-        <div className="performance-grid">
-          <div className="perf-card">
-            <h3>⚡ Fast Load Times</h3>
-            <p>Optimized assets, clean code, and efficient rendering.</p>
-          </div>
-          <div className="perf-card">
-            <h3>🧠 Scalable Architecture</h3>
-            <p>Components designed to grow with your product.</p>
-          </div>
-          <div className="perf-card">
-            <h3>🔒 Reliable Deployments</h3>
-            <p>Version control, CI-friendly structure, and clean builds.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="faq-section">
-        <h2 className="section-title">Frequently Asked Questions</h2>
-
-        <div className="faq-list">
-          <div className="faq-item">
-            <h4>What kind of projects do you work on?</h4>
-            <p>
-              I work on web applications, landing pages, dashboards, Web3
-              products, and performance-focused frontend systems.
-            </p>
-          </div>
-
-          <div className="faq-item">
-            <h4>Do you handle both design and development?</h4>
-            <p>
-              Yes. I focus on clean UI implementation, strong UX decisions, and
-              maintainable frontend architecture.
-            </p>
-          </div>
-
-          <div className="faq-item">
-            <h4>What makes your work different?</h4>
-            <p>
-              I combine engineering thinking with clarity. No over-engineering,
-              no clutter — just systems that work and scale.
-            </p>
-          </div>
-
-          <div className="faq-item">
-            <h4>How do we get started?</h4>
-            <p>
-              Send a message through the contact page with your idea or problem.
-              I’ll respond with next steps.
-            </p>
-          </div>
-        </div>
-      </section>
-    </section>
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14.5px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent-2)
   );
+  box-shadow: 0 10px 26px rgba(0, 40, 120, 0.18);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0, 40, 120, 0.28);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background: rgba(0, 0, 0, 0.03);
+  transform: none;
+}
+
+/* ==============================
+   HERO RIGHT / PROFILE CARD
+================================ */
+
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-card {
+  width: 100%;
+  max-width: 340px;
+  padding: 28px;
+  border-radius: 16px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(245, 247, 252, 0.9)
+  );
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.hero-card img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 18px;
+}
+
+.hero-card-name {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.hero-card-role {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ==============================
+   TOOL / STACK STRIP
+================================ */
+
+.tech-stack {
+  margin-top: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.tech-pill {
+  padding: 8px 14px;
+  font-size: 13px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.04);
+  color: #0a1324;
+  font-weight: 500;
+}
+
+/* ==============================
+   PERFORMANCE TAG
+================================ */
+
+.performance-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--accent);
 }
