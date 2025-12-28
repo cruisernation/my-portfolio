@@ -77,7 +77,7 @@ export default function Home() {
             "vercel",
           ].map((tool) => (
             <div key={tool} className="stack-item">
-              <img src={`/assets/tools/${tool}.png`} alt={tool} />
+              <img src={`/assets/tools/${tool}.jpg`} alt={tool} />
               <span>{tool.toUpperCase()}</span>
             </div>
           ))}
