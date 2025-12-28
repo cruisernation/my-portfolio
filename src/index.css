@@ -126,9 +126,9 @@ button {
 }
 
 .hero-actions {
-  margin-top: 20px;
+  align-items: center;
   display: flex;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
