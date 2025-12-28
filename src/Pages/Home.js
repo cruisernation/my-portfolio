@@ -67,27 +67,38 @@ export default function Home() {
   <h2 className="section-title">Tools & Stack</h2>
 
   <div className="stack-grid">
-    {[
-      { name: "react", label: "React" },
-      { name: "js", label: "JavaScript" },
-      { name: "html", label: "HTML" },
-      { name: "css", label: "CSS" },
-      { name: "git", label: "Git" },
-      { name: "github", label: "GitHub" },
-      { name: "vercel", label: "Vercel" },
-      { name: "ml", label: "ML" },
-    ].map((tool) => (
-      <div key={tool.name} className="stack-item">
-        <div className="stack-icon">
-          <img
-            src={`/assets/tools/${tool.name}.jpg`}
-            alt={tool.label}
-            loading="lazy"
-          />
-        </div>
-        <span className="stack-label">{tool.label}</span>
-      </div>
-    ))}
+    <div className="stack-item">
+      <img src="/assets/tools/react.jpg" alt="React" className="stack-icon" />
+      <span className="stack-label">React</span>
+    </div>
+    <div className="stack-item">
+      <img src="/assets/tools/js.jpg" alt="JavaScript" className="stack-icon" />
+      <span className="stack-label">JavaScript</span>
+    </div>
+    <div className="stack-item">
+      <img src="/assets/tools/html.jpg" alt="HTML" className="stack-icon" />
+      <span className="stack-label">HTML</span>
+    </div>
+    <div className="stack-item">
+      <img src="/assets/tools/css.jpg" alt="CSS" className="stack-icon" />
+      <span className="stack-label">CSS</span>
+    </div>
+    <div className="stack-item">
+      <img src="/assets/tools/git.jpg" alt="Git" className="stack-icon" />
+      <span className="stack-label">Git</span>
+    </div>
+    <div className="stack-item">
+      <img src="/assets/tools/github.jpg" alt="GitHub" className="stack-icon" />
+      <span className="stack-label">GitHub</span>
+    </div>
+    <div className="stack-item">
+      <img src="/assets/tools/vercel.jpg" alt="Vercel" className="stack-icon" />
+      <span className="stack-label">Vercel</span>
+    </div>
+    <div className="stack-item">
+      <img src="/assets/tools/ml.jpg" alt="ML" className="stack-icon" />
+      <span className="stack-label">ML</span>
+    </div>
   </div>
 </section>
 
