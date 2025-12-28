@@ -60,7 +60,7 @@ export default function About() {
           <div className="quick-facts">
             <div className="quick-title">Quick Facts</div>
             <ul>
-              <li>Hybrid: Web Developer & Copywriter</li>
+              <li>Hybrid: Web Developer & Virtual Assistant</li>
               <li>Clients: Web3, Startups & Modern Tech</li>
               <li>Core Values: Precision • Clarity • Consistency</li>
             </ul>
