@@ -34,7 +34,7 @@ export default function Home() {
       <div className="hero">
         <div className="hero-left">
           <h1 className="hero-title">
-            Hi, I am Abdulhamid <br />
+            Hi, I am Abdulhamid;
             <span className="typing">{text}</span>
           </h1>
 
