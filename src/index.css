@@ -87,175 +87,215 @@ button {
   transform: translateY(-2px);
 }
 
-/* ==============================
-   HERO LAYOUT
-================================ */
-
+/* =========================
+   HERO SECTION
+========================= */
 .hero {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 56px;
+  gap: 48px;
   align-items: center;
-  padding: 96px 0 72px;
+  padding: 80px 0;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
-    gap: 48px;
-    padding: 72px 0 56px;
+    text-align: center;
   }
 }
-
-/* ==============================
-   HERO LEFT
-================================ */
 
 .hero-left {
   max-width: 720px;
 }
-
-.h1 {
-  font-size: clamp(34px, 4vw, 46px);
-  line-height: 1.08;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 18px;
-  color: #0a1324;
-}
-
-.lead {
-  font-size: 16.5px;
-  line-height: 1.7;
-  color: var(--muted);
-  max-width: 640px;
-  margin-bottom: 32px;
-}
-
-/* ==============================
-   CTA BUTTONS
-================================ */
-
-.hero-cta {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px 22px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 14.5px;
-  border: none;
-  cursor: pointer;
-  color: #fff;
-  background: linear-gradient(
-    135deg,
-    var(--accent),
-    var(--accent-2)
-  );
-  box-shadow: 0 10px 26px rgba(0, 40, 120, 0.18);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px rgba(0, 40, 120, 0.28);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: none;
-}
-
-.btn-outline:hover {
-  background: rgba(0, 0, 0, 0.03);
-  transform: none;
-}
-
-/* ==============================
-   HERO RIGHT / PROFILE CARD
-================================ */
 
 .hero-right {
   display: flex;
   justify-content: center;
 }
 
+/* =========================
+   HEADLINE + TYPING TEXT
+========================= */
+.h1 {
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0b1b2e;
+  margin-bottom: 18px;
+}
+
+.typing-text {
+  color: var(--accent);
+  border-right: 2px solid var(--accent);
+  padding-right: 6px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* =========================
+   LEAD TEXT
+========================= */
+.lead {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 640px;
+  margin-bottom: 28px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+  box-shadow: 0 10px 30px rgba(12,64,146,0.18);
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.08);
+  color: var(--text);
+  box-shadow: none;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(12,64,146,0.28);
+}
+
+/* =========================
+   PROFILE CARD
+========================= */
 .hero-card {
-  width: 100%;
-  max-width: 340px;
+  background: var(--card);
   padding: 28px;
   border-radius: 16px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.9),
-    rgba(245, 247, 252, 0.9)
-  );
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0,0,0,0.06);
   text-align: center;
+  max-width: 320px;
+  box-shadow: 0 20px 60px rgba(2,6,23,0.12);
 }
 
 .hero-card img {
   width: 180px;
   height: 180px;
-  object-fit: cover;
   border-radius: 14px;
-  margin-bottom: 18px;
+  object-fit: cover;
+  margin-bottom: 16px;
 }
 
-.hero-card-name {
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 6px;
-}
-
-.hero-card-role {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-/* ==============================
-   TOOL / STACK STRIP
-================================ */
-
+/* =========================
+   TECH STACK
+========================= */
 .tech-stack {
-  margin-top: 48px;
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 12px;
+  margin-top: 26px;
 }
 
 .tech-pill {
   padding: 8px 14px;
-  font-size: 13px;
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.04);
-  color: #0a1324;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(15,82,186,0.08);
+  color: var(--accent);
 }
 
-/* ==============================
-   PERFORMANCE TAG
-================================ */
+/* =========================
+   CONTENT GRID
+========================= */
+.content-showcase {
+  padding: 80px 0;
+}
 
-.performance-tag {
-  display: inline-flex;
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.content-card {
+  background: var(--card);
+  padding: 26px;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.content-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(12,64,146,0.18);
+  border-color: var(--accent);
+}
+
+.icon-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 22px;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--accent);
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+/* =========================
+   FAQ (ACCORDION)
+========================= */
+.faq {
+  padding: 80px 0;
+  max-width: 860px;
+  margin: auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 18px 0;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px;
+  padding-bottom: 16px;
 }
 
 .about {
