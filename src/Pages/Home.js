@@ -45,7 +45,7 @@ export default function Home() {
 
           <div className="hero-actions">
             <Link to="/portfolio" className="btn primary">
-              Project
+              Projects
             </Link>
             <Link to="/contact" className="btn ghost">
               Hire Me
