@@ -129,13 +129,18 @@ button {
   margin-top: 28px;
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 /* BUTTONS */
 .btn {
-  padding: 14px 22px;
-  border-radius: 12px;
+  dislay: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 10px;
   font-weight: 600;
+  text-decoration: none;
   transition: all 0.25s ease;
 }
 
