@@ -114,7 +114,7 @@ button {
 .typing { color: var(--accent); }
 
 .hero-sub { color: var(--muted); margin-bottom: 24px; max-width: 600px; }
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-actions { display: center; gap: 12px; flex-wrap: wrap; }
 
 .btn {
   display: inline-flex;
