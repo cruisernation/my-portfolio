@@ -16,7 +16,7 @@ export default function Contact() {
         {/* Contact Meta */}
         <div className="contact-meta">
           <div className="contact-location">
-            <FiMapPin size={15} />
+            <FiMapPin size={18} />
             <span>Lagos, Nigeria</span>
           </div>
 
@@ -25,6 +25,7 @@ export default function Contact() {
               href="mailto:abdulhamidoshiomah@gmail.com"
               className="icon-btn"
               aria-label="Send Email"
+              title="Send Email"
             >
               <FiMail size={18} />
             </a>
@@ -35,6 +36,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="icon-btn linkedin-btn"
               aria-label="LinkedIn"
+              title="LinkedIn"
             >
               <FaLinkedinIn size={18} />
             </a>
@@ -45,6 +47,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="icon-btn github-btn"
               aria-label="GitHub"
+              title="GitHub"
             >
               <FaGithub size={18} />
             </a>
@@ -55,13 +58,14 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="icon-btn x-btn"
               aria-label="X (Twitter)"
+              title="X (Twitter)"
             >
               <FaXTwitter size={18} />
             </a>
           </div>
         </div>
 
-        {/* Form */}
+        {/* Contact Form */}
         <form
           className="contact-form"
           action="mailto:abdulhamidoshiomah@gmail.com"
@@ -71,7 +75,7 @@ export default function Contact() {
           <input
             type="text"
             name="name"
-            placeholder="Your name"
+            placeholder="Your Name"
             className="input-field"
             required
           />
@@ -79,20 +83,20 @@ export default function Contact() {
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="Your Email"
             className="input-field"
             required
           />
 
           <textarea
             name="message"
-            placeholder="Brief"
-            rows={4}
+            placeholder="Your Message"
+            rows={5}
             className="input-field"
             required
           />
 
-          <button className="btn form-btn" type="submit">
+          <button className="btn form-btn primary" type="submit">
             <FiMail size={16} />
             Send Message
           </button>
