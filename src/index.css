@@ -108,8 +108,9 @@ button {
 }
 
 .hero-title {
-  font-size: clamp(36px, 5vw, 52px);
+  font-size: 44PX;
   font-weight: 800;
+  line-height: 1.1,
 }
 
 .typing {
@@ -120,19 +121,19 @@ button {
 
 .hero-sub {
   margin-top: 16px;
-  max-width: 560px;
+  max-width: 520px;
   color: var(--muted);
 }
 
 .hero-actions {
   margin-top: 28px;
   display: flex;
-  gap: 10px;
+  gap: 16px;
 }
 
 /* BUTTONS */
 .btn {
-  padding: 14px 26px;
+  padding: 14px 22px;
   border-radius: 12px;
   font-weight: 600;
   transition: all 0.25s ease;
@@ -160,7 +161,7 @@ button {
 /* IMAGE */
 .hero-img {
   width: 260px;
-  border-radius: 18px;
+  border-radius: 20px;
 }
 
 /* STACK */
