@@ -7,20 +7,20 @@ const FEATURED_PROJECTS = [
     title: "Midex Royale Inn",
     description:
       "A modern hospitality website with clean UI, responsive layout, and performance-focused architecture.",
-    image: "/assets/projects/midex-royale.png",
+    image: "/assets/projects/midex-royale.jpg",
     live: "https://midex-royale-inn.vercel.app/",
     github: "https://github.com/cruisernation/midex-royale-inn",
-    tools: ["React", "JavaScript", "CSS", "Git", "Vercel"],
+    tools: ["Javascript", "Html", "CSS"],
   },
   {
     id: "real-property-nine",
     title: "Real Property Nine",
     description:
       "Real estate landing page built with React, focusing on conversion, clarity, and responsive UX.",
-    image: "/assets/projects/real-property.png",
+    image: "/assets/projects/real-property.jpg",
     live: "https://real-property-nine.vercel.app/",
-    github: "https://github.com/cruisernation/real-property-nine",
-    tools: ["React", "CSS", "HTML", "Git", "Vercel"],
+    github: "https://github.com/cruisernation/Real-Estate",
+    tools: ["Javascript", "CSS", "HTML"],
   },
 ];
 
