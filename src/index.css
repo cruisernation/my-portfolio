@@ -126,10 +126,14 @@ button {
 }
 
 .hero-actions {
-  margin-top: 28px;
+  align-items: center;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+.hero-action .btn{
+  white-space: nowrap;
 }
 
 /* BUTTONS */
