@@ -50,7 +50,7 @@ export default function Portfolio() {
       {/* Portfolio Header */}
       <div className="portfolio-header">
         <div>
-          <h2 className="section-title">Portfolio</h2>
+          <h2 className="section-title">Porjects</h2>
           <p className="section-sub">
             A curated mix of frontend builds, strategic content, and upcoming Web3
             case studies.
