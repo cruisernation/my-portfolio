@@ -64,25 +64,32 @@ export default function Home() {
 
       {/* TOOLS & STACK */}
       <section className="stack-section">
-        <h2 className="section-title">Tools & Stack</h2>
+  <h2 className="section-title">Tools & Stack</h2>
 
-        <div className="stack-grid">
-          {[
-            "react",
-            "js",
-            "html",
-            "css",
-            "git",
-            "github",
-            "vercel",
-          ].map((tool) => (
-            <div key={tool} className="stack-item">
-              <img src={`/assets/tools/${tool}.jpg`} alt={tool} />
-              <span>{tool.toUpperCase()}</span>
-            </div>
-          ))}
+  <div className="stack-grid">
+    {[
+      { name: "react", label: "React" },
+      { name: "js", label: "JavaScript" },
+      { name: "html", label: "HTML" },
+      { name: "css", label: "CSS" },
+      { name: "git", label: "Git" },
+      { name: "github", label: "GitHub" },
+      { name: "vercel", label: "Vercel" },
+      { name: "ml", label: "ML" },
+    ].map((tool) => (
+      <div key={tool.name} className="stack-item">
+        <div className="stack-icon">
+          <img
+            src={`/assets/tools/${tool.name}.jpg`}
+            alt={tool.label}
+            loading="lazy"
+          />
         </div>
-      </section>
+        <span className="stack-label">{tool.label}</span>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* PERFORMANCE */}
       <section className="performance-section">
