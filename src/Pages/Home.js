@@ -115,6 +115,10 @@ export default function Home() {
             q: "How do I start a project?",
             a: "Simply contact me via the contact page and we’ll discuss your goals.",
           },
+          {
+            q: "How fast do you deliver?",
+            a: "Timelines depend on scope, but I prioritize speed without sacrificing quality.",
+          },
         ].map((item, i) => (
           <div key={i} className="faq-item">
             <button
@@ -122,7 +126,7 @@ export default function Home() {
               onClick={() => setOpenFaq(openFaq === i ? null : i)}
             >
               {item.q}
-              <span>{openFaq === i ? "−" : "+"}</span>
+              <span>{openFaq === i ? "^" : "⌄"}</span>
             </button>
 
             {openFaq === i && <p className="faq-answer">{item.a}</p>}
