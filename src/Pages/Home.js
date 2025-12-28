@@ -1,90 +1,53 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FiChevronDown } from "react-icons/fi";
 
-const typingWords = ["I am a Web Developer,", "a Content Writer,", "and a Virtual Assistant."];
-const tools = [
-  { name: "React", img: "/assets/tools/react.svg" },
-  { name: "JavaScript", img: "/assets/tools/javascript.svg" },
-  { name: "HTML", img: "/assets/tools/html.svg" },
-  { name: "CSS", img: "/assets/tools/css.svg" },
-  { name: "Git", img: "/assets/tools/git.svg" },
-  { name: "GitHub", img: "/assets/tools/github.svg" },
-  { name: "Vercel", img: "/assets/tools/vercel.svg" },
-];
-
-const faqs = [
-  {
-    q: "What services do you offer?",
-    a: "Web development, Web3-focused content writing, frontend engineering, and virtual assistance tailored for tech products."
-  },
-  {
-    q: "Do you work remotely?",
-    a: "Yes. I work remotely with clients globally while being based in Lagos, Nigeria."
-  },
-  {
-    q: "What technologies do you use?",
-    a: "React, JavaScript, HTML, CSS, Git, GitHub, Vercel, and modern frontend tooling."
-  },
-  {
-    q: "How fast can you deliver?",
-    a: "Delivery depends on scope, but I prioritize performance, clean architecture, and scalability over rushed output."
-  }
-];
+const words = ["I am a Web Developer,", "a Content Writer,", "and a Virtual Assistant."];
 
 export default function Home() {
+  const [text, setText] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [activeFaq, setActiveFaq] = useState(null);
+  const [charIndex, setCharIndex] = useState(0);
+  const [openFaq, setOpenFaq] = useState(null);
 
-  // Typing Effect
+  // Typing effect
   useEffect(() => {
-    const current = typingWords[wordIndex];
-    let timeout;
+    const currentWord = words[wordIndex];
 
-    if (!isDeleting && displayText.length < current.length) {
-      timeout = setTimeout(() => {
-        setDisplayText(current.slice(0, displayText.length + 1));
+    if (charIndex <= currentWord.length) {
+      const timeout = setTimeout(() => {
+        setText(currentWord.slice(0, charIndex));
+        setCharIndex((c) => c + 1);
       }, 80);
-    } else if (isDeleting && displayText.length > 0) {
-      timeout = setTimeout(() => {
-        setDisplayText(current.slice(0, displayText.length - 1));
-      }, 40);
-    } else if (!isDeleting && displayText.length === current.length) {
-      timeout = setTimeout(() => setIsDeleting(true), 1000);
-    } else if (isDeleting && displayText.length === 0) {
-      setIsDeleting(false);
-      setWordIndex((prev) => (prev + 1) % typingWords.length);
+      return () => clearTimeout(timeout);
+    } else {
+      const pause = setTimeout(() => {
+        setCharIndex(0);
+        setWordIndex((i) => (i + 1) % words.length);
+      }, 1200);
+      return () => clearTimeout(pause);
     }
-
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, wordIndex]);
+  }, [charIndex, wordIndex]);
 
   return (
-    <section className="home">
+    <section className="home-section">
       {/* HERO */}
       <div className="hero">
         <div className="hero-left">
           <h1 className="hero-title">
-            Hi, I’m <span>Aneru</span>
+            Hi, I am Abdulhamid <br />
+            <span className="typing">{text}</span>
           </h1>
 
-          <h2 className="typing">
-            {displayText}
-            <span className="cursor">|</span>
-          </h2>
-
-          <p className="hero-desc">
-            I build high-performance web applications with clean architecture,
-            modern tooling, and strong attention to user experience.
+          <p className="hero-sub">
+            I design and build modern, high-performance web interfaces with
+            precision, scalability, and clean engineering.
           </p>
 
           <div className="hero-actions">
             <Link to="/portfolio" className="btn primary">
               View Work
             </Link>
-            <Link to="/contact" className="btn outline">
+            <Link to="/contact" className="btn ghost">
               Hire Me
             </Link>
           </div>
@@ -93,58 +56,78 @@ export default function Home() {
         <div className="hero-right">
           <img
             src="/assets/main-pfp.jpeg"
-            alt="Aneru profile"
-            className="profile-img"
+            alt="Aneru Abdulhamid"
+            className="hero-img"
           />
         </div>
       </div>
 
-      {/* STACK */}
-      <section className="stack">
-        <h3 className="section-title">Tools & Stack</h3>
+      {/* TOOLS & STACK */}
+      <section className="stack-section">
+        <h2 className="section-title">Tools & Stack</h2>
+
         <div className="stack-grid">
-          {tools.map((t) => (
-            <div key={t.name} className="stack-item">
-              <img src={t.img} alt={t.name} />
-              <span>{t.name}</span>
+          {[
+            "react",
+            "js",
+            "html",
+            "css",
+            "git",
+            "github",
+            "vercel",
+          ].map((tool) => (
+            <div key={tool} className="stack-item">
+              <img src={`/assets/tools/${tool}.png`} alt={tool} />
+              <span>{tool.toUpperCase()}</span>
             </div>
           ))}
         </div>
       </section>
 
       {/* PERFORMANCE */}
-      <section className="performance">
-        <h3 className="section-title">Performance First</h3>
-        <p>
-          Optimized rendering, reusable components, clean codebase,
-          accessibility-aware UI, and SEO-friendly structure.
+      <section className="performance-section">
+        <h2 className="section-title">Performance First</h2>
+        <p className="section-sub">
+          Every build is optimized for speed, accessibility, and scalability.
         </p>
+
+        <div className="perf-grid">
+          <div className="perf-card">⚡ Fast load times</div>
+          <div className="perf-card">♿ Accessibility-ready</div>
+          <div className="perf-card">📈 Scalable architecture</div>
+        </div>
       </section>
 
       {/* FAQ */}
-      <section className="faq">
-        <h3 className="section-title">Frequently Asked Questions</h3>
+      <section className="faq-section">
+        <h2 className="section-title">FAQ</h2>
 
-        <div className="faq-list">
-          {faqs.map((item, i) => (
-            <div
-              key={i}
-              className={`faq-item ${activeFaq === i ? "open" : ""}`}
+        {[
+          {
+            q: "What do you specialize in?",
+            a: "Frontend web development with modern tools like React, focusing on clean UI, performance, and maintainability.",
+          },
+          {
+            q: "Do you work remotely?",
+            a: "Yes. I work remotely with clients globally.",
+          },
+          {
+            q: "How do I start a project?",
+            a: "Simply contact me via the contact page and we’ll discuss your goals.",
+          },
+        ].map((item, i) => (
+          <div key={i} className="faq-item">
+            <button
+              className="faq-question"
+              onClick={() => setOpenFaq(openFaq === i ? null : i)}
             >
-              <button
-                className="faq-question"
-                onClick={() => setActiveFaq(activeFaq === i ? null : i)}
-              >
-                {item.q}
-                <FiChevronDown />
-              </button>
+              {item.q}
+              <span>{openFaq === i ? "−" : "+"}</span>
+            </button>
 
-              <div className="faq-answer">
-                <p>{item.a}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+            {openFaq === i && <p className="faq-answer">{item.a}</p>}
+          </div>
+        ))}
       </section>
     </section>
   );
