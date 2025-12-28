@@ -1,170 +1,118 @@
-/* ==============================
-   HERO LAYOUT
-================================ */
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-.hero {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 56px;
-  align-items: center;
-  padding: 96px 0 72px;
-}
+const words = ["I code.", "I build.", "I optimize."];
 
-@media (max-width: 960px) {
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 48px;
-    padding: 72px 0 56px;
-  }
-}
+export default function Home() {
+  const [text, setText] = useState("");
+  const [index, setIndex] = useState(0);
+  const [char, setChar] = useState(0);
 
-/* ==============================
-   HERO LEFT
-================================ */
+  // Typing effect
+  useEffect(() => {
+    const current = words[index];
+    if (char < current.length) {
+      const timeout = setTimeout(() => {
+        setText((prev) => prev + current[char]);
+        setChar(char + 1);
+      }, 80);
+      return () => clearTimeout(timeout);
+    } else {
+      setTimeout(() => {
+        setText("");
+        setChar(0);
+        setIndex((index + 1) % words.length);
+      }, 1200);
+    }
+  }, [char, index]);
 
-.hero-left {
-  max-width: 720px;
-}
+  const faqs = [
+    {
+      q: "What services do you offer?",
+      a: "Web development, Web3 content writing, frontend engineering, performance optimization, and virtual assistance."
+    },
+    {
+      q: "Do you work remotely?",
+      a: "Yes. I work fully remote with clients across different regions."
+    },
+    {
+      q: "What tools do you use?",
+      a: "React, JavaScript, HTML, CSS, Git, GitHub, Vercel, and modern performance-first workflows."
+    },
+    {
+      q: "How do you handle performance?",
+      a: "I optimize for speed, accessibility, SEO, and clean architecture from the start."
+    }
+  ];
 
-.h1 {
-  font-size: clamp(34px, 4vw, 46px);
-  line-height: 1.08;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 18px;
-  color: #0a1324;
-}
+  const [openFAQ, setOpenFAQ] = useState(null);
 
-.lead {
-  font-size: 16.5px;
-  line-height: 1.7;
-  color: var(--muted);
-  max-width: 640px;
-  margin-bottom: 32px;
-}
+  return (
+    <section className="home">
+      {/* HERO */}
+      <div className="hero">
+        <div className="hero-left">
+          <h1 className="hero-title">
+            {text}
+            <span className="cursor">|</span>
+          </h1>
 
-/* ==============================
-   CTA BUTTONS
-================================ */
+          <p className="hero-sub">
+            Web Developer focused on clean UI, performance, and modern web systems.
+          </p>
 
-.hero-cta {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-}
+          <div className="hero-actions">
+            <Link to="/portfolio" className="btn">View Portfolio</Link>
+            <Link to="/contact" className="btn ghost">Hire Me</Link>
+          </div>
+        </div>
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px 22px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 14.5px;
-  border: none;
-  cursor: pointer;
-  color: #fff;
-  background: linear-gradient(
-    135deg,
-    var(--accent),
-    var(--accent-2)
+        <div className="hero-right">
+          <div className="profile-card">
+            <img src="/assets/main-pfp.jpeg" alt="profile" />
+            <h3>Aneru Abdulhamid Oshiomah</h3>
+            <p>Web Developer • Lagos, Nigeria</p>
+          </div>
+        </div>
+      </div>
+
+      {/* TOOLS */}
+      <section className="tools">
+        <h2 className="section-title">Tools & Stack</h2>
+        <div className="tools-grid">
+          {["React", "JavaScript", "HTML", "CSS", "Git", "GitHub", "Vercel", "ML"].map(t => (
+            <span key={t} className="tool">{t}</span>
+          ))}
+        </div>
+      </section>
+
+      {/* PERFORMANCE */}
+      <section className="performance">
+        <h2 className="section-title">Performance First</h2>
+        <p>
+          I build fast-loading, accessible, SEO-ready interfaces optimized for real users and real devices.
+        </p>
+      </section>
+
+      {/* FAQ */}
+      <section className="faq">
+        <h2 className="section-title">FAQ</h2>
+
+        {faqs.map((item, i) => (
+          <div key={i} className="faq-item">
+            <button
+              className="faq-question"
+              onClick={() => setOpenFAQ(openFAQ === i ? null : i)}
+            >
+              {item.q}
+            </button>
+
+            {openFAQ === i && (
+              <div className="faq-answer">{item.a}</div>
+            )}
+          </div>
+        ))}
+      </section>
+    </section>
   );
-  box-shadow: 0 10px 26px rgba(0, 40, 120, 0.18);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px rgba(0, 40, 120, 0.28);
-}
-
-.btn-outline {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: none;
-}
-
-.btn-outline:hover {
-  background: rgba(0, 0, 0, 0.03);
-  transform: none;
-}
-
-/* ==============================
-   HERO RIGHT / PROFILE CARD
-================================ */
-
-.hero-right {
-  display: flex;
-  justify-content: center;
-}
-
-.hero-card {
-  width: 100%;
-  max-width: 340px;
-  padding: 28px;
-  border-radius: 16px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.9),
-    rgba(245, 247, 252, 0.9)
-  );
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-  text-align: center;
-}
-
-.hero-card img {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 14px;
-  margin-bottom: 18px;
-}
-
-.hero-card-name {
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 6px;
-}
-
-.hero-card-role {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-/* ==============================
-   TOOL / STACK STRIP
-================================ */
-
-.tech-stack {
-  margin-top: 48px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.tech-pill {
-  padding: 8px 14px;
-  font-size: 13px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.04);
-  color: #0a1324;
-  font-weight: 500;
-}
-
-/* ==============================
-   PERFORMANCE TAG
-================================ */
-
-.performance-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 22px;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--accent);
 }
