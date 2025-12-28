@@ -53,7 +53,7 @@ export default function About() {
         {/* Right Column: Profile */}
         <div className="about-profile">
           <img
-            src="/assets/main-pfp.jpg"
+            src="/assets/main-pfp.jpeg"
             alt="profile"
             className="profile-img"
           />
