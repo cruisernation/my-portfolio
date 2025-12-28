@@ -45,9 +45,13 @@ button {
 }
 
 .header {
+  position: sticky;          
+  top: 0;
+  z-index: 1000;             
   padding: 22px 0;
+  background: rgba(207,233,255,0.85);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0,0,0,0.08);
-  background: transparent;
 }
 
 .nav {
@@ -760,13 +764,13 @@ button {
 }
 
 .hamburger {
+  display: none;
   width: 28px;
   height: 20px;
-  display: none;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  z-index: 1200;
+  z-index: 1201;
 }
 
 .hamburger span {
@@ -795,19 +799,15 @@ button {
 
 .mobile-menu {
   position: fixed;
-  right: -100%;
   top: 0;
+  right: -100%;
   width: 70%;
   height: 100vh;
   background: rgba(255,255,255,0.14);
   backdrop-filter: blur(10px);
-  border-left: 1px solid rgba(0,0,0,0.06);
   padding: 80px 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
   transition: 0.35s ease;
-  z-index: 1100;
+  z-index: 1200; /* FIX */
 }
 
 .mobile-menu.show {
