@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const words = ["I am a Web Developer,", "a Content Writer,", "and a Virtual Assistant."];
+const words = [
+  "I am a Web Developer,",
+  "a Content Writer,",
+  "and a Virtual Assistant."
+];
 
 export default function Home() {
   const [text, setText] = useState("");
@@ -37,15 +41,13 @@ export default function Home() {
             Hi, I am Abdulhamid <br />
             <span className="typing">{text}</span>
           </h1>
-
           <p className="hero-sub">
             I design and build modern, high-performance web interfaces with
             precision, scalability, and clean engineering.
           </p>
-
           <div className="hero-actions">
             <Link to="/portfolio" className="btn primary">
-              Projects
+              View Work
             </Link>
             <Link to="/contact" className="btn ghost">
               Hire Me
@@ -64,43 +66,30 @@ export default function Home() {
 
       {/* TOOLS & STACK */}
       <section className="stack-section">
-  <h2 className="section-title">Tools & Stack</h2>
-
-  <div className="stack-grid">
-    <div className="stack-item">
-      <img src="/assets/tools/react.jpg" alt="React" className="stack-icon" />
-      <span className="stack-label">React</span>
-    </div>
-    <div className="stack-item">
-      <img src="/assets/tools/js.jpg" alt="JavaScript" className="stack-icon" />
-      <span className="stack-label">JavaScript</span>
-    </div>
-    <div className="stack-item">
-      <img src="/assets/tools/html.jpg" alt="HTML" className="stack-icon" />
-      <span className="stack-label">HTML</span>
-    </div>
-    <div className="stack-item">
-      <img src="/assets/tools/css.jpg" alt="CSS" className="stack-icon" />
-      <span className="stack-label">CSS</span>
-    </div>
-    <div className="stack-item">
-      <img src="/assets/tools/git.jpg" alt="Git" className="stack-icon" />
-      <span className="stack-label">Git</span>
-    </div>
-    <div className="stack-item">
-      <img src="/assets/tools/github.jpg" alt="GitHub" className="stack-icon" />
-      <span className="stack-label">GitHub</span>
-    </div>
-    <div className="stack-item">
-      <img src="/assets/tools/vercel.jpg" alt="Vercel" className="stack-icon" />
-      <span className="stack-label">Vercel</span>
-    </div>
-    <div className="stack-item">
-      <img src="/assets/tools/ml.jpg" alt="ML" className="stack-icon" />
-      <span className="stack-label">ML</span>
-    </div>
-  </div>
-</section>
+        <h2 className="section-title">Tools & Stack</h2>
+        <div className="stack-grid">
+          {[
+            { name: "React", img: "react.jpg" },
+            { name: "JavaScript", img: "js.jpg" },
+            { name: "HTML", img: "html.jpg" },
+            { name: "CSS", img: "css.jpg" },
+            { name: "Git", img: "git.jpg" },
+            { name: "GitHub", img: "github.jpg" },
+            { name: "Vercel", img: "vercel.jpg" },
+            { name: "ML", img: "ml.jpg" },
+          ].map((tool) => (
+            <div key={tool.name} className="stack-item">
+              <img
+                src={`/assets/tools/${tool.img}`}
+                alt={tool.name}
+                className="stack-icon"
+                loading="lazy"
+              />
+              <span className="stack-label">{tool.name}</span>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* PERFORMANCE */}
       <section className="performance-section">
@@ -108,7 +97,6 @@ export default function Home() {
         <p className="section-sub">
           Every build is optimized for speed, accessibility, and scalability.
         </p>
-
         <div className="perf-grid">
           <div className="perf-card">⚡ Fast load times</div>
           <div className="perf-card">♿ Accessibility-ready</div>
@@ -119,11 +107,10 @@ export default function Home() {
       {/* FAQ */}
       <section className="faq-section">
         <h2 className="section-title">FAQ</h2>
-
         {[
           {
             q: "What do you specialize in?",
-            a: "Frontend web development with modern tools like React, focusing on clean UI, performance, and maintainability.",
+            a: "Web development with modern tools like React, focusing on clean UI, performance, and maintainability.",
           },
           {
             q: "Do you work remotely?",
@@ -138,16 +125,19 @@ export default function Home() {
             a: "Timelines depend on scope, but I prioritize speed without sacrificing quality.",
           },
         ].map((item, i) => (
-          <div key={i} className="faq-item">
+          <div
+            key={i}
+            className={`faq-item ${openFaq === i ? "open" : ""}`}
+          >
             <button
               className="faq-question"
               onClick={() => setOpenFaq(openFaq === i ? null : i)}
+              aria-expanded={openFaq === i}
             >
               {item.q}
-              <span>{openFaq === i ? "^" : "⌄"}</span>
+              <span className="faq-icon">{openFaq === i ? "^" : "⌄"}</span>
             </button>
-
-            {openFaq === i && <p className="faq-answer">{item.a}</p>}
+            <p className="faq-answer">{item.a}</p>
           </div>
         ))}
       </section>
