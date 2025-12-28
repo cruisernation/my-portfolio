@@ -70,7 +70,7 @@ export default function Home() {
         <div className="stack-grid">
           {[
             { name: "React", img: "react.jpg" },
-            { name: "JavaScript", img: "js.jpg" },
+            { name: "JavaScript", img: "frank.jpg" },
             { name: "HTML", img: "html.jpg" },
             { name: "CSS", img: "css.jpg" },
             { name: "Git", img: "git.jpg" },
