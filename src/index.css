@@ -115,8 +115,8 @@ button {
 
 .typing {
   color: var(--accent);
-  border-right: 2px solid var(--accent);
-  padding-right: 6px;
+  font-size: 40px;
+  font-weight: 600;
 }
 
 .hero-sub {
