@@ -9,39 +9,41 @@ export default function Header() {
 
   return (
     <header className="header">
-      <div className="container header-wrapper">
-        
-        <div className="brand">
-          <img src="./assets/my-pfpjs.jpg" alt="logo" className="logo" />
-          <div>
-            <div className="site-title">Aneru Abdulhamid Oshiomah</div>
-            <div className="site-handle">@_shadowofweb3</div>
-          </div>
-        </div>
-
-        <nav className="nav desktop-nav">
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/about" className="nav-link">About</Link>
-          <Link to="/services" className="nav-link">Services</Link>
-          <Link to="/portfolio" className="nav-link">Portfolio</Link>
-          <Link to="/contact" className="nav-link">Contact</Link>
-        </nav>
-
-        <div className={`hamburger ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <nav className={`mobile-menu ${menuOpen ? "show" : ""}`}>
-          <Link onClick={closeMenu} to="/">Home</Link>
-          <Link onClick={closeMenu} to="/about">About</Link>
-          <Link onClick={closeMenu} to="/services">Services</Link>
-          <Link onClick={closeMenu} to="/portfolio">Portfolio</Link>
-          <Link onClick={closeMenu} to="/contact">Contact</Link>
-        </nav>
-
+  <div className="header-inner">
+    <div className="brand">
+      <img src="/assets/my-pfp.jpg" alt="profile" />
+      <div>
+        <h1>Aneru Abdulhamid Oshiomah</h1>
+        <span>@_shadowofweb3</span>
       </div>
-    </header>
+    </div>
+
+    {/* Desktop Nav */}
+    <nav className="nav-desktop">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/services">Services</a>
+      <a href="/portfolio">Projects</a>
+      <a href="/contact">Contact</a>
+    </nav>
+
+    {/* Hamburger */}
+    <button className="hamburger" onClick={toggleMenu}>
+      {open ? "✕" : "☰"}
+    </button>
+  </div>
+
+  {/* Mobile Nav */}
+  {open && (
+    <nav className="nav-mobile">
+      <a onClick={close}>Home</a>
+      <a onClick={close}>About</a>
+      <a onClick={close}>Services</a>
+      <a onClick={close}>Portfolio</a>
+      <a onClick={close}>Contact</a>
+    </nav>
+  )}
+</header>
+
   );
 }
