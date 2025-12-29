@@ -816,41 +816,31 @@ button {
   border-top: 1px solid rgba(0,0,0,0.1);
 }
 
-.header {
-  position: sticky;
-  top: 0;
-  background: #d9ecff;
-  z-index: 1000;
-}
 
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 20px;
-}
+/* ===== HEADER NAV FIX ===== */
 
-/* Desktop nav */
-.nav-desktop {
-  display: flex;
-  gap: 22px;
-}
-
-/* Hamburger */
-.hamburger {
-  display: none;
-  font-size: 26px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* Mobile Nav */
+/* Mobile nav hidden by default */
 .nav-mobile {
-  display: flex;
-  flex-direction: column;   /* 🔥 THIS FIXES THE TEXT */
+  display: none;
+  flex-direction: column;
   gap: 18px;
   padding: 24px;
   background: #d9ecff;
   border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* When menu is open */
+.nav-mobile.open {
+  display: flex;
+}
+
+/* Mobile rules */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
 }
