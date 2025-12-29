@@ -39,7 +39,7 @@ export default function Header() {
       <a onClick={close}>Home</a>
       <a onClick={close}>About</a>
       <a onClick={close}>Services</a>
-      <a onClick={close}>Portfolio</a>
+      <a onClick={close}>Projects</a>
       <a onClick={close}>Contact</a>
     </nav>
   )}
