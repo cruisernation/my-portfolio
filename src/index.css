@@ -776,8 +776,8 @@ button {
   display: none; /* hidden on desktop */
   flex-direction: column;
   justify-content: space-between;
-  width: 25px;
-  height: 20px;
+  width: 20px;
+  height: 18px;
   background: none;
   border: none;
   cursor: pointer;
@@ -786,10 +786,10 @@ button {
 
 .hamburger span {
   display: block;
-  height: 3px;
+  height: 2px;
   width: 100%;
-  background-color: #333;
-  border-radius: 2px;
+  background-color: #666;
+  border-radius: 1px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -847,7 +847,7 @@ button {
 .nav-mobile a {
   text-decoration: none;
   color: #333;
-  font-weight: 200px;
+  font-weight: 500px;
   font-size: 1.1rem;
 }
 
