@@ -18,6 +18,15 @@ export default function Header() {
           </div>
         </div>
 
+  {/* Desktop Nav */}
+        <nav className="nav-desktop">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/services">Services</Link>
+          <Link to="/portfolio">Projects</Link>
+          <Link to="/contact">Contact</Link>
+        </nav>
+
         {/* Hamburger (ALL screen sizes) */}
         <button className="hamburger" onClick={toggleMenu} aria-label="Menu">
           {menuOpen ? "✕" : "☰"}
