@@ -17,7 +17,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Nav */}
         <nav className="nav-desktop">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
@@ -26,7 +26,7 @@ export default function Header() {
           <Link to="/contact">Contact</Link>
         </nav>
 
-        {/* Hamburger (mobile only) */}
+        {/* Hamburger */}
         <button
           className={`hamburger ${open ? "open" : ""}`}
           onClick={() => setOpen(!open)}
@@ -39,16 +39,17 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu (conditionally rendered) */}
-      {open && (
-        <nav className="nav-mobile">
-          <Link to="/" onClick={() => setOpen(false)}>Home</Link>
-          <Link to="/about" onClick={() => setOpen(false)}>About</Link>
-          <Link to="/services" onClick={() => setOpen(false)}>Services</Link>
-          <Link to="/portfolio" onClick={() => setOpen(false)}>Projects</Link>
-          <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
-        </nav>
-      )}
+      {/* Overlay */}
+      {open && <div className="overlay" onClick={() => setOpen(false)} />}
+
+      {/* Right-side Mobile Drawer */}
+      <nav className={`nav-mobile ${open ? "open" : ""}`}>
+        <Link to="/" onClick={() => setOpen(false)}>Home</Link>
+        <Link to="/about" onClick={() => setOpen(false)}>About</Link>
+        <Link to="/services" onClick={() => setOpen(false)}>Services</Link>
+        <Link to="/portfolio" onClick={() => setOpen(false)}>Projects</Link>
+        <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
+      </nav>
     </header>
   );
 }
