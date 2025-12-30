@@ -35,7 +35,7 @@ a:active,
 a:focus,
 .btn,
 button {
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 .container {
