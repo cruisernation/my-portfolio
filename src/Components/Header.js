@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./Header.css";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,42 +30,23 @@ export default function Header() {
         </nav>
 
         {/* Hamburger Button */}
-      
-<button
-  className="hamburger"
-  onClick={toggleMenu}
-  aria-label="Toggle menu"
->
-  <div className="line"></div>
-  <div className="line"></div>
-  <div className="line"></div>
-</button>
-
+        <div className="hamburger" onClick={toggleMenu} aria-label="Toggle menu">
+          <div className={`line ${menuOpen ? "line1" : ""}`}></div>
+          <div className={`line ${menuOpen ? "line2" : ""}`}></div>
+          <div className={`line ${menuOpen ? "line3" : ""}`}></div>
+        </div>
       </div>
 
       {/* Mobile Overlay */}
-      <div
-        className={`mobile-overlay ${menuOpen ? "active" : ""}`}
-        onClick={closeMenu}
-      ></div>
+      {menuOpen && <div className="mobile-overlay" onClick={closeMenu}></div>}
 
-      {/* Mobile Navigation (Side Drawer) */}
+      {/* Mobile Navigation */}
       <nav className={`nav-mobile ${menuOpen ? "active" : ""}`}>
-        <Link to="/" onClick={closeMenu}>
-          Home
-        </Link>
-        <Link to="/about" onClick={closeMenu}>
-          About
-        </Link>
-        <Link to="/services" onClick={closeMenu}>
-          Services
-        </Link>
-        <Link to="/portfolio" onClick={closeMenu}>
-          Projects
-        </Link>
-        <Link to="/contact" onClick={closeMenu}>
-          Contact
-        </Link>
+        <Link to="/" onClick={closeMenu}>Home</Link>
+        <Link to="/about" onClick={closeMenu}>About</Link>
+        <Link to="/services" onClick={closeMenu}>Services</Link>
+        <Link to="/portfolio" onClick={closeMenu}>Projects</Link>
+        <Link to="/contact" onClick={closeMenu}>Contact</Link>
       </nav>
     </header>
   );
