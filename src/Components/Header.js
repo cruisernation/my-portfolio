@@ -28,7 +28,7 @@ export default function Header() {
           <Link to="/contact">Contact</Link>
         </nav>
 
-        {/* Hamburger */}
+        {/* Hamburger Button */}
         <button
           className={`hamburger ${menuOpen ? "open" : ""}`}
           onClick={toggleMenu}
@@ -46,7 +46,7 @@ export default function Header() {
         onClick={closeMenu}
       ></div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation (Side Drawer) */}
       <nav className={`nav-mobile ${menuOpen ? "active" : ""}`}>
         <Link to="/" onClick={closeMenu}>
           Home
