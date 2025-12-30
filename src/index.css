@@ -104,30 +104,11 @@ button {
   cursor: pointer;
 }
 
-.line {
-  height: 3px;
-  width: 100%;
-  background-color: #333;
-  transition: all 0.3s ease;
-}
-
-.line1 {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.line2 {
-  opacity: 0;
-}
-
-.line3 {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
 /* Mobile Navigation */
 .nav-mobile {
   position: fixed;
   top: 0;
-  right: -100%;
+  right: -300px; /* start off-screen */
   width: 250px;
   height: 100%;
   background-color: white;
@@ -135,19 +116,36 @@ button {
   flex-direction: column;
   gap: 20px;
   padding: 60px 20px;
-  transition: right 0.3s ease;
+  transition: right 0.5s ease; /* smooth slide */
   z-index: 1000;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
 }
 
 .nav-mobile.active {
-  right: 0;
+  right: 0; /* slide in */
 }
 
 .nav-mobile a {
   text-decoration: none;
   color: #333;
   font-weight: bold;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.4s ease;
 }
+
+/* Animate links when menu opens */
+.nav-mobile.active a {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger link animation */
+.nav-mobile.active a:nth-child(1) { transition-delay: 0.05s; }
+.nav-mobile.active a:nth-child(2) { transition-delay: 0.1s; }
+.nav-mobile.active a:nth-child(3) { transition-delay: 0.15s; }
+.nav-mobile.active a:nth-child(4) { transition-delay: 0.2s; }
+.nav-mobile.active a:nth-child(5) { transition-delay: 0.25s; }
 
 /* Overlay */
 .mobile-overlay {
@@ -158,15 +156,32 @@ button {
   height: 100%;
   background: rgba(0,0,0,0.4);
   z-index: 900;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* Responsive Rules */
+.mobile-overlay.active {
+  opacity: 1;
+}
+
+/* Hamburger Animation */
+.line1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.line2 {
+  opacity: 0;
+}
+.line3 {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Responsive rules */
 @media (max-width: 768px) {
   .nav-desktop {
-    display: none; /* hide desktop nav */
+    display: none;
   }
   .hamburger {
-    display: flex; /* show hamburger on mobile */
+    display: flex;
   }
 }
 
