@@ -84,7 +84,6 @@ button {
 
 /* Hover effect (ASH, not accent) */
 .nav-desktop a:hover {
-  color: #6b7280; /* ash */
   background: rgba(0, 0, 0, 0.04);
 }
 
