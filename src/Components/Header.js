@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./Header.css";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
-  };
-
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header className="header">
@@ -33,24 +29,42 @@ export default function Header() {
           <Link to="/contact">Contact</Link>
         </nav>
 
-        {/* Hamburger for Mobile */}
-        <button
-          className="hamburger"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? "✕" : "☰"}
-        </button>
+        {/* Hamburger */}
+<button
+  className={`hamburger ${menuOpen ? "open" : ""}`}
+  onClick={toggleMenu}
+  aria-label="Toggle menu"
+>
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
       </div>
 
+      {/* Mobile Overlay */}
+      <div
+        className={`mobile-overlay ${menuOpen ? "active" : ""}`}
+        onClick={closeMenu}
+      ></div>
+
       {/* Mobile Navigation */}
-     <nav className={`nav-mobile ${menuOpen ? "active" : ""}`}>
-  <Link to="/" onClick={closeMenu}>Home</Link>
-  <Link to="/about" onClick={closeMenu}>About</Link>
-  <Link to="/services" onClick={closeMenu}>Services</Link>
-  <Link to="/portfolio" onClick={closeMenu}>Projects</Link>
-  <Link to="/contact" onClick={closeMenu}>Contact</Link>
-</nav>
+      <nav className={`nav-mobile ${menuOpen ? "active" : ""}`}>
+        <Link to="/" onClick={closeMenu}>
+          Home
+        </Link>
+        <Link to="/about" onClick={closeMenu}>
+          About
+        </Link>
+        <Link to="/services" onClick={closeMenu}>
+          Services
+        </Link>
+        <Link to="/portfolio" onClick={closeMenu}>
+          Projects
+        </Link>
+        <Link to="/contact" onClick={closeMenu}>
+          Contact
+        </Link>
+      </nav>
     </header>
   );
 }
