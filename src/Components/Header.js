@@ -1,23 +1,23 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./index.css";
+import "./header.css";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className="site-header">
-      <div className="header-container">
+    <header className="header">
+      <div className="header-inner">
         {/* Brand */}
         <div className="brand">
           <img src="/assets/my-pfp.jpg" alt="Profile" />
-          <div>
+          <div className="brand-text">
             <h1>Aneru Abdulhamid Oshiomah</h1>
             <span>@_shadowofweb3</span>
           </div>
         </div>
 
-        {/* Desktop Nav */}
+        {/* Desktop Navigation */}
         <nav className="nav-desktop">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
@@ -26,12 +26,12 @@ export default function Header() {
           <Link to="/contact">Contact</Link>
         </nav>
 
-        {/* Mobile Toggle */}
+        {/* Hamburger (mobile only) */}
         <button
-          className="menu-toggle"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle navigation"
-          aria-expanded={isOpen}
+          className={`hamburger ${open ? "open" : ""}`}
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
         >
           <span />
           <span />
@@ -39,14 +39,14 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
+      {/* Mobile Menu (conditionally rendered) */}
+      {open && (
         <nav className="nav-mobile">
-          <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link to="/about" onClick={() => setIsOpen(false)}>About</Link>
-          <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
-          <Link to="/portfolio" onClick={() => setIsOpen(false)}>Projects</Link>
-          <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
+          <Link to="/" onClick={() => setOpen(false)}>Home</Link>
+          <Link to="/about" onClick={() => setOpen(false)}>About</Link>
+          <Link to="/services" onClick={() => setOpen(false)}>Services</Link>
+          <Link to="/portfolio" onClick={() => setOpen(false)}>Projects</Link>
+          <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
         </nav>
       )}
     </header>
