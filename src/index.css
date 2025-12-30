@@ -798,10 +798,7 @@ button {
   z-index: 999;
 }
 
-@media (max-width: 768px) {
-  .nav-desktop {
-    display: none; /* ❌ hide desktop nav */
-  }
+@media (max-width: 768px) 
 
   .hamburger {
     display: block; /* ✅ show hamburger */
