@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./header.css";
+import "./index.css";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,14 +8,26 @@ export default function Header() {
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => setMenuOpen(false);
 
+  // Safety: close mobile menu if resized to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <header className="header">
       <div className="header-inner container">
         {/* Brand */}
         <div className="brand">
-          <img src="/assets/my-pfp.jpg" alt="profile" className="logo" />
+          <img src="/assets/my-pfp.jpg" alt="Profile" className="logo" />
           <div className="brand-text">
-            <h1 className="site-title">Aneru Abdulhamid Oshiomah</h1>
+            <h1>Aneru Abdulhamid Oshiomah</h1>
             <span>@_shadowofweb3</span>
           </div>
         </div>
@@ -29,23 +41,24 @@ export default function Header() {
           <Link to="/contact">Contact</Link>
         </nav>
 
-        {/* Hamburger */}
-        <div
+        {/* Hamburger (Mobile Only) */}
+        <button
           className={`hamburger ${menuOpen ? "active" : ""}`}
           onClick={toggleMenu}
-          aria-label="Toggle menu"
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
         >
-          <div className="line line1"></div>
-          <div className="line line2"></div>
-          <div className="line line3"></div>
-        </div>
+          <span />
+          <span />
+          <span />
+        </button>
       </div>
 
-      {/* Overlay */}
+      {/* Mobile Overlay */}
       <div
         className={`mobile-overlay ${menuOpen ? "active" : ""}`}
         onClick={closeMenu}
-      ></div>
+      />
 
       {/* Mobile Navigation */}
       <nav className={`nav-mobile ${menuOpen ? "active" : ""}`}>
