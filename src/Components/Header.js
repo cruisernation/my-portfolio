@@ -29,20 +29,23 @@ export default function Header() {
           <Link to="/contact">Contact</Link>
         </nav>
 
-        {/* Hamburger Button */}
-        <div className="hamburger" onClick={toggleMenu} aria-label="Toggle menu">
-          <div className={`line ${menuOpen ? "line1" : ""}`}></div>
-          <div className={`line ${menuOpen ? "line2" : ""}`}></div>
-          <div className={`line ${menuOpen ? "line3" : ""}`}></div>
+        {/* Hamburger */}
+        <div
+          className={`hamburger ${menuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <div className="line line1"></div>
+          <div className="line line2"></div>
+          <div className="line line3"></div>
         </div>
       </div>
 
-      {/* Mobile Overlay */}
-<div
-  className={`mobile-overlay ${menuOpen ? "active" : ""}`}
-  onClick={closeMenu}
-></div>
-
+      {/* Overlay */}
+      <div
+        className={`mobile-overlay ${menuOpen ? "active" : ""}`}
+        onClick={closeMenu}
+      ></div>
 
       {/* Mobile Navigation */}
       <nav className={`nav-mobile ${menuOpen ? "active" : ""}`}>
