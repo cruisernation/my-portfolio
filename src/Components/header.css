@@ -1,11 +1,12 @@
 /* =========================================================
-   RESET / SAFETY (prevents Vite/global style bleed)
+   VARIABLES
    ========================================================= */
-.header,
-.header *,
-.nav-mobile,
-.overlay {
-  box-sizing: border-box;
+:root {
+  --light-blue: #f4f8ff;
+  --border-color: #e2e8f0;
+  --text-dark: #1f2933;
+  --text-muted: #6b7280;
+  --accent: #2563eb;
 }
 
 /* =========================================================
@@ -14,8 +15,8 @@
 .header {
   position: relative;
   width: 100%;
-  background-color: #ffffff; /* force white */
-  border-bottom: 1px solid #eaeaea;
+  background-color: var(--light-blue);
+  border-bottom: 1px solid var(--border-color);
   z-index: 1000;
 }
 
@@ -48,12 +49,12 @@
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
-  color: #111;
+  color: var(--text-dark);
 }
 
 .brand-text span {
   font-size: 0.8rem;
-  color: #666;
+  color: var(--text-muted);
 }
 
 /* =========================================================
@@ -69,12 +70,12 @@
   text-decoration: none;
   font-weight: 600;
   font-size: 0.95rem;
-  color: #333;
+  color: var(--text-dark);
   transition: color 0.2s ease;
 }
 
 .nav-desktop a:hover {
-  color: #007bff;
+  color: var(--accent);
 }
 
 /* =========================================================
@@ -94,7 +95,7 @@
 .hamburger span {
   width: 26px;
   height: 3px;
-  background-color: #333;
+  background-color: var(--text-dark);
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -118,7 +119,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(15, 23, 42, 0.45);
   z-index: 1040;
 }
 
@@ -128,7 +129,7 @@
 .nav-mobile {
   position: fixed;
   top: 0;
-  right: -280px; /* hidden by default */
+  right: -280px;
   width: 280px;
   height: 100vh;
   background-color: var(--light-blue);
@@ -136,10 +137,10 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  box-shadow: -2px 0 12px rgba(0, 0, 0, 0.15);
+  box-shadow: -2px 0 14px rgba(0, 0, 0, 0.15);
   transition: right 0.35s ease;
   z-index: 1050;
-  isolation: isolate; /* prevents color bleed */
+  isolation: isolate;
 }
 
 .nav-mobile.open {
@@ -150,12 +151,12 @@
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
-  color: #333;
+  color: var(--text-dark);
   transition: color 0.2s ease;
 }
 
 .nav-mobile a:hover {
-  color: #007bff;
+  color: var(--accent);
 }
 
 /* =========================================================
