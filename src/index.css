@@ -93,12 +93,6 @@ button {
   background: rgba(0, 0, 0, 0.06);
 }
 
-/* Remove focus ring glow */
-.nav-desktop a:focus {
-  outline: none;
-}
-
-
 .home {
   padding: 60px 20px;
 }
