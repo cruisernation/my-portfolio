@@ -110,7 +110,7 @@ button {
 .hero-left { flex: 1; }
 .hero-right { flex: 1; display: flex; justify-content: center; align-items: center; }
 
-.hero-title { font-size: 19px; line-height: 1.1; margin-bottom: 16px; color: #0b1b2e; }
+.hero-title { font-size: 30px; line-height: 1.1; margin-bottom: 16px; color: #0b1b2e; }
 .typing { color: var(--accent); }
 
 .hero-sub { color: var(--muted); margin-bottom: 24px; max-width: 600px; }
