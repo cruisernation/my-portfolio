@@ -77,19 +77,28 @@ button {
   font-size: 18px;
 }
 
-.nav a {
+.nav-desktop a {
   color: var(--muted);
-  text-decoration: none;
-  padding: 8px 10px;
-  border-radius: 8px;
-  transition: all 0.18s;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
-.nav a:hover {
-  color: var(--accent);
-  background: rgba(15,82,186,0.08);
-  transform: translateY(-2px);
+/* Hover effect (ASH, not accent) */
+.nav-desktop a:hover {
+  color: #6b7280; /* ash */
+  background: rgba(0, 0, 0, 0.04);
 }
+
+/* Active / clicked state */
+.nav-desktop a:active {
+  color: #6b7280;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* Remove focus ring glow */
+.nav-desktop a:focus {
+  outline: none;
+}
+
 
 .home {
   padding: 60px 20px;
