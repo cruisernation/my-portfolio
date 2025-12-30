@@ -44,25 +44,13 @@ export default function Header() {
       </div>
 
       {/* Mobile Navigation */}
-      {menuOpen && (
-        <nav className="nav-mobile">
-          <Link to="/" onClick={closeMenu}>
-            Home
-          </Link>
-          <Link to="/about" onClick={closeMenu}>
-            About
-          </Link>
-          <Link to="/services" onClick={closeMenu}>
-            Services
-          </Link>
-          <Link to="/portfolio" onClick={closeMenu}>
-            Projects
-          </Link>
-          <Link to="/contact" onClick={closeMenu}>
-            Contact
-          </Link>
-        </nav>
-      )}
+     <nav className={`nav-mobile ${menuOpen ? "active" : ""}`}>
+  <Link to="/" onClick={closeMenu}>Home</Link>
+  <Link to="/about" onClick={closeMenu}>About</Link>
+  <Link to="/services" onClick={closeMenu}>Services</Link>
+  <Link to="/portfolio" onClick={closeMenu}>Projects</Link>
+  <Link to="/contact" onClick={closeMenu}>Contact</Link>
+</nav>
     </header>
   );
 }
