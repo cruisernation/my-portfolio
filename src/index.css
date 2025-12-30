@@ -771,30 +771,36 @@ button {
   }
 }
 
-/* Hamburger base */
-.hamburger {
-  display: none; /* hidden on desktop */
-  flex-direction: column;
-  justify-content: space-between;
-  width: 20px;
-  height: 18px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .hamburger .line {
+    height: 2px;          /* thin lines */
+    width: 100%;          /* full width */
+    background-color: #333; /* line color */
+    border-radius: 1px;
+  }
 }
 
-.hamburger span {
-  display: block;
-  height: 2px;
-  width: 100%;
-  background-color: #666;
-  border-radius: 1px;
-  transition: all 0.3s ease-in-out;
+/* Optional: animate to cross if needed */
+.hamburger.open .line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
 }
-
-
-
+.hamburger.open .line:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open .line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
 /* Mobile Overlay */
 .mobile-overlay {
   display: none;
