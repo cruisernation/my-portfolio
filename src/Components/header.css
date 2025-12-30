@@ -2,7 +2,7 @@
    VARIABLES
    ========================================================= */
 :root {
-  --light-blue: #f4f8ff;
+  --header-blue: #DAE8ED;
   --border-color: #e2e8f0;
   --text-dark: #1f2933;
   --text-muted: #6b7280;
@@ -132,7 +132,7 @@
   right: -280px;
   width: 280px;
   height: 100vh;
-  background-color: var(--light-blue);
+  background-color: var(--header-blue);
   padding: 80px 24px;
   display: flex;
   flex-direction: column;
