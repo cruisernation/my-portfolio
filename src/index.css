@@ -780,18 +780,26 @@ button {
   cursor: pointer;
 }
 
-/* Mobile Navigation (hidden by default) */
+/* Mobile Navigation - initially off-screen to the right */
 .nav-mobile {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1rem 2rem;
+  position: fixed; /* fixed to the screen */
+  top: 0;
+  right: -100%; /* hidden off-screen */
+  height: 100vh;
+  width: 250px; /* menu width */
+  padding: 2rem 1rem;
   background-color: #f9f9f9;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  border-top: 1px solid #ddd;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out; /* smooth slide */
+  z-index: 999;
+}
+
+/* Show menu when active */
+.nav-mobile.active {
+  right: 0;
 }
 
 /* Mobile links styling */
@@ -799,6 +807,7 @@ button {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  font-size: 1.1rem;
 }
 
 .nav-mobile a:hover {
