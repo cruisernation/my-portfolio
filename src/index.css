@@ -829,10 +829,6 @@ button {
   }
 }
 
-.nav-desktop{
-  display: flex;
-  gap: 22px;
-}
   .hamburger {
     display: none;
   }
