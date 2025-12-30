@@ -765,4 +765,38 @@ button {
   }
 }
 
+/* Desktop nav */
+.nav-desktop {
+  display: flex;
+  gap: 22px;
+}
 
+/* Hamburger default (hidden on desktop) */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile nav */
+.nav-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+  background: #d9ecff;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
