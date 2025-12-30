@@ -765,35 +765,4 @@ button {
   }
 }
 
-/* Desktop nav */
-.nav-desktop {
-  display: flex;
-  gap: 22px;
-}
 
-/* Hamburger */
-.hamburger {
-  display: none;
-  font-size: 26px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* Mobile Nav */
-.nav-mobile {
-  display: flex;
-  flex-direction: column;   /* 🔥 THIS FIXES THE TEXT */
-  gap: 18px;
-  padding: 24px;
-  background: #d9ecff;
-  border-top: 1px solid rgba(0,0,0,0.1);
-}
-
-/* When menu is open */
-.nav-mobile.open {
-  display: flex;
-}
-
-.hamburger {
-    display: block;
