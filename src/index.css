@@ -43,19 +43,22 @@ button {
   margin: 0 auto;
   padding: 0 28px;
 }
+
 /* ================= HEADER ================= */
-.header {
+.site-header {
   width: 100%;
   background: #fff;
-  position: relative;
-  z-index: 1000;
+  border-bottom: 1px solid #eee;
 }
 
-.header-inner {
+/* Layout */
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 12px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 20px;
 }
 
 /* ================= BRAND ================= */
@@ -65,18 +68,18 @@ button {
   gap: 12px;
 }
 
-.logo {
+.brand img {
   width: 48px;
   height: 48px;
   border-radius: 50%;
 }
 
-.brand-text h1 {
+.brand h1 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
-.brand-text span {
+.brand span {
   font-size: 0.8rem;
   color: #666;
 }
@@ -93,80 +96,29 @@ button {
   color: #333;
 }
 
-.nav-desktop a:hover {
-  color: #007bff;
-}
-
 /* ================= HAMBURGER ================= */
-.hamburger {
+.menu-toggle {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
   flex-direction: column;
   gap: 5px;
-  z-index: 1100;
 }
 
-.hamburger span {
-  width: 28px;
+.menu-toggle span {
+  width: 26px;
   height: 3px;
   background: #333;
-  transition: 0.3s ease;
 }
 
-/* Hamburger animation */
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* ================= MOBILE MENU ================= */
-.nav-mobile,
-.mobile-overlay {
-  display: none;
-}
-
-/* Overlay */
-.mobile-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s ease;
-}
-
-.mobile-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Mobile Drawer */
+/* ================= MOBILE NAV ================= */
 .nav-mobile {
-  position: fixed;
-  top: 0;
-  right: -260px;
-  width: 260px;
-  height: 100%;
-  background: #fff;
-  padding: 80px 24px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  transition: right 0.4s ease;
-  z-index: 1050;
-}
-
-.nav-mobile.active {
-  right: 0;
+  padding: 16px 20px;
+  gap: 16px;
+  border-top: 1px solid #eee;
 }
 
 .nav-mobile a {
@@ -181,16 +133,10 @@ button {
     display: none;
   }
 
-  .hamburger {
+  .menu-toggle {
     display: flex;
   }
-
-  .nav-mobile,
-  .mobile-overlay {
-    display: block;
-  }
 }
-
 
 .home {
   padding: 60px 20px;
