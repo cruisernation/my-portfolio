@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./Header.css"; // make sure you have a corresponding CSS file
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => setMenuOpen(prev => !prev);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => setMenuOpen(false);
 
   return (
@@ -13,7 +14,7 @@ export default function Header() {
         {/* Brand */}
         <div className="brand">
           <img src="/assets/my-pfp.jpg" alt="profile" className="logo" />
-          <div>
+          <div className="brand-text">
             <h1 className="site-title">Aneru Abdulhamid Oshiomah</h1>
             <span>@_shadowofweb3</span>
           </div>
