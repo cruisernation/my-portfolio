@@ -771,41 +771,48 @@ button {
   }
 }
 
-
-
-/* Hamburger always visible */
+/* Hamburger Button (hidden on desktop) */
 .hamburger {
   display: none;
-  font-size: 26px;
   background: none;
   border: none;
+  font-size: 1.75rem;
   cursor: pointer;
-  color: var(--muted);
 }
 
-/* Mobile Nav */
+/* Mobile Navigation (hidden by default) */
 .nav-mobile {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  padding: 24px;
-  background: #d9ecff;
-  border-top: 1px solid rgba(0,0,0,0.1);
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background-color: #f9f9f9;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #ddd;
 }
 
+/* Mobile links styling */
 .nav-mobile a {
-  font-weight: 600;
-  color: var(--text);
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
 }
 
-@media (max-width: 768px) {
-  .nav-desktop{
-    display: none;
-  }
+.nav-mobile a:hover {
+  color: #0070f3;
 }
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none; /* Hide desktop nav */
+  }
 
   .hamburger {
-    display: none;
+    display: block; /* Show hamburger */
   }
-
+}
 
