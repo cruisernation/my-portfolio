@@ -59,7 +59,7 @@ export default function Portfolio() {
     <section className="portfolio-section">
       {/* HEADER */}
       <div className="portfolio-header">
-        <h2 className="section-title">Portfolio</h2>
+        <h2 className="section-title">Projects</h2>
         <p className="section-sub">
           Selected frontend projects focused on performance, clarity, and scalable UI.
         </p>
