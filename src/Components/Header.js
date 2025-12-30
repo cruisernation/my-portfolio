@@ -29,15 +29,17 @@ export default function Header() {
         </nav>
 
         {/* Hamburger Button */}
-        <button
-          className={`hamburger ${menuOpen ? "open" : ""}`}
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+      
+<button
+  className="hamburger"
+  onClick={toggleMenu}
+  aria-label="Toggle menu"
+>
+  <div className="line"></div>
+  <div className="line"></div>
+  <div className="line"></div>
+</button>
+
       </div>
 
       {/* Mobile Overlay */}
