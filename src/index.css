@@ -474,12 +474,6 @@ button {
   }
 }
 
-.services-section{
-.section-title{
-  padding: 25px 0;
-}
-}
-
 /* ===== SERVICES GRID ===== */
 .services-grid {
   display: grid;
