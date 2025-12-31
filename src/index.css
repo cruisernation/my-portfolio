@@ -474,13 +474,16 @@ button {
   }
 }
 
+.service-section{
+  padding: 25px 0
+}
+
 /* ===== SERVICES GRID ===== */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 32px;
   margin-top: 40px;
-  padding:25px 0;
 }
 
 /* ===== SERVICE CARD ===== */
@@ -551,7 +554,6 @@ button {
   letter-spacing: -0.2px;
   color: var(--text);
   margin-bottom: 10px;
-  padding: 25px, 0;
 }
 
 .service-desc {
@@ -712,7 +714,7 @@ button {
 /* MOBILE */
 @media (max-width: 768px) {
   .featured-card {
-    grid-template-columns: 1fr;
+    grid-temp
+      late-columns: 1fr;
   }
 }
-
