@@ -475,7 +475,9 @@ button {
 }
 
 .services-section{
-  padding: 25px 0
+.section-title{
+  padding: 25px 0;
+}
 }
 
 /* ===== SERVICES GRID ===== */
