@@ -30,7 +30,7 @@ const OTHER_PROJECTS = [
     title: "Sarah S Accessories Maison",
     description:
       "An online e-commerce store that showcases curated fashion accessories, designed to elevate your personal style.",
-    image: "/assets/projects/project5.jpg",
+    image: "/assets/projects/pro5.jpg",
     live: "https://sarah-s-accessories-maison.vercel.app/",
     github: "https://github.com/cruisernation/sarah-s-accessories-maison",
     tools: ["React", "CSS", "HTML", "JavaScript"],
