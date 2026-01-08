@@ -656,6 +656,7 @@ button {
   background: var(--card);
   padding: 32px;
   border-radius: 20px;
+  align-items: center;
 }
 
 .project-image {
@@ -666,6 +667,7 @@ button {
 
 .project-image.small {
   height: 180px;
+  object-fit: cover;
 }
 
 .project-content h3 {
@@ -707,10 +709,17 @@ button {
   border-radius: 16px;
 }
 
-/* MOBILE */
+/* MOBILE FIX */
 @media (max-width: 768px) {
   .featured-card {
-    grid-temp
-      late-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .featured-projects {
+    gap: 24px;
+  }
+
+  .project-image.small {
+    height: 160px;
   }
 }
