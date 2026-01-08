@@ -10,7 +10,7 @@ const FEATURED_PROJECTS = [
     image: "/assets/projects/midex-royale.jpg",
     live: "https://midex-royale-inn.vercel.app/",
     github: "https://github.com/cruisernation/midex-royale-inn",
-    tools: ["Javascript", "Html", "CSS"],
+    tools: ["JavaScript", "HTML", "CSS"],
   },
   {
     id: "real-property-nine",
@@ -20,19 +20,20 @@ const FEATURED_PROJECTS = [
     image: "/assets/projects/real-property.jpg",
     live: "https://real-property-nine.vercel.app/",
     github: "https://github.com/cruisernation/Real-Estate",
-    tools: ["Javascript", "CSS", "HTML"],
+    tools: ["JavaScript", "CSS", "HTML"],
   },
 ];
 
 const OTHER_PROJECTS = [
   {
-    id: "sarah s accessories maison",
+    id: "sarah-accessories-maison",
     title: "Sarah S Accessories Maison",
-    description: "An online e-commerce store that showcases curated fashion accessories, designed to elevate your personal style.",
-    image: "/assets/projects/projectt5.jpg",
-    live: "https://sarah-s-accessories.maison.vercel.app/",
+    description:
+      "An online e-commerce store that showcases curated fashion accessories, designed to elevate your personal style.",
+    image: "/assets/projects/project5.jpg",
+    live: "https://sarah-s-accessories-maison.vercel.app/",
     github: "https://github.com/cruisernation/sarah-s-accessories-maison",
-    tools: ["React", "CSS", "HTML", "JavaScript", "GitHub"],
+    tools: ["React", "CSS", "HTML", "JavaScript"],
   },
   {
     id: "landing-ui",
@@ -69,7 +70,12 @@ export default function Portfolio() {
       <div className="featured-projects">
         {FEATURED_PROJECTS.map((p) => (
           <article key={p.id} className="featured-card">
-            <img src={p.image} alt={p.title} className="project-image" />
+            <img
+              src={p.image}
+              alt={p.title}
+              className="project-image"
+              loading="lazy"
+            />
 
             <div className="project-content">
               <h3>{p.title}</h3>
@@ -77,15 +83,27 @@ export default function Portfolio() {
 
               <div className="tool-list">
                 {p.tools.map((tool) => (
-                  <span key={tool} className="tool-badge">{tool}</span>
+                  <span key={tool} className="tool-badge">
+                    {tool}
+                  </span>
                 ))}
               </div>
 
               <div className="project-actions">
-                <a href={p.live} target="_blank" rel="noreferrer" className="btn primary">
+                <a
+                  href={p.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn primary"
+                >
                   Live Demo <FiExternalLink />
                 </a>
-                <a href={p.github} target="_blank" rel="noreferrer" className="btn ghost">
+                <a
+                  href={p.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn ghost"
+                >
                   GitHub <FiGithub />
                 </a>
               </div>
@@ -98,20 +116,41 @@ export default function Portfolio() {
       <div className="portfolio-grid">
         {OTHER_PROJECTS.map((p) => (
           <article key={p.id} className="project-card">
-            <img src={p.image} alt={p.title} className="project-image small" />
+            <img
+              src={p.image}
+              alt={p.title}
+              className="project-image small"
+              loading="lazy"
+            />
 
             <h4>{p.title}</h4>
             <p>{p.description}</p>
 
             <div className="tool-list">
               {p.tools.map((tool) => (
-                <span key={tool} className="tool-badge">{tool}</span>
+                <span key={tool} className="tool-badge">
+                  {tool}
+                </span>
               ))}
             </div>
 
             <div className="project-actions">
-              <a href={p.live} className="btn small primary">Live</a>
-              <a href={p.github} className="btn small ghost">GitHub</a>
+              <a
+                href={p.live}
+                target="_blank"
+                rel="noreferrer"
+                className="btn small primary"
+              >
+                Live
+              </a>
+              <a
+                href={p.github}
+                target="_blank"
+                rel="noreferrer"
+                className="btn small ghost"
+              >
+                GitHub
+              </a>
             </div>
           </article>
         ))}
