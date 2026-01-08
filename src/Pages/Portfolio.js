@@ -27,12 +27,12 @@ const FEATURED_PROJECTS = [
 const OTHER_PROJECTS = [
   {
     id: "portfolio-v1",
-    title: "Personal Portfolio Website",
-    description: "Developer portfolio showcasing projects, skills, and contact flow.",
-    image: "/assets/projects/portfolio.png",
-    live: "https://my-portfolio-weld-rho-83.vercel.app/",
-    github: "https://github.com/cruisernation/my-portfolio",
-    tools: ["React", "CSS", "JavaScript", "GitHub"],
+    title: "Sarah S Accessories Maison",
+    description: "An online e-commerce store that showcases curated fashion accessories, designed to elevate your personal style.",
+    image: "/assets/projects/project5.jpg",
+    live: "https://sarah-s-accessories.maison.vercel.app/",
+    github: "https://github.com/cruisernation/sarah-s-accessories-maison",
+    tools: ["React", "CSS", "HTML", "JavaScript", "GitHub"],
   },
   {
     id: "landing-ui",
