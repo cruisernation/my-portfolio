@@ -1,148 +1,160 @@
-import React, { useState } from "react";
-import { FiExternalLink } from "react-icons/fi";
-import { FaCubes, FaCode, FaPenNib } from "react-icons/fa6";
+import React from "react";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
 
-const PROJECTS = [
+const FEATURED_PROJECTS = [
   {
-    id: "web3-coming-soon",
-    title: "Web3 Case Studies Coming Soon",
-    category: "Web3",
-    summary:
-      "Blockchain UX, token documentation, dApp onboarding, and protocol content currently in progress.",
-    details:
-      "My upcoming Web3-focused work will include token documentation, protocol-level storytelling, dApp onboarding flows, and smart contract focused product messaging.",
-    link: null,
-    comingSoon: true,
+    id: "midex-royale-inn",
+    title: "Midex Royale Inn",
+    description:
+      "A modern hospitality website with clean UI, responsive layout, and performance-focused architecture.",
+    image: "/assets/projects/midex-royale.jpg",
+    live: "https://midex-royale-inn.vercel.app/",
+    github: "https://github.com/cruisernation/midex-royale-inn",
+    tools: ["JavaScript", "HTML", "CSS"],
   },
   {
     id: "real-property-nine",
-    title: "Real-Property Nine Landing & UX Rebuild",
-    category: "Frontend",
-    summary:
-      "React landing page rebuild, clean UI system, UX copywriting, and responsive layout development.",
-    details:
-      "Developed a polished real-estate landing experience using React. Focused on modern UI structure, responsive components, strong visual hierarchy, and persuasive messaging for better conversion. Full website available via live link.",
-    link: "https://real-property-nine.vercel.app",
+    title: "Real Property Nine",
+    description:
+      "Real estate landing page built with React, focusing on conversion, clarity, and responsive UX.",
+    image: "/assets/projects/real-property.jpg",
+    live: "https://real-property-nine.vercel.app/",
+    github: "https://github.com/cruisernation/Real-Estate",
+    tools: ["JavaScript", "CSS", "HTML"],
+  },
+];
+
+const OTHER_PROJECTS = [
+  {
+    id: "sarah-accessories-maison",
+    title: "Sarah S Accessories Maison",
+    description:
+      "An online e-commerce store that showcases curated fashion accessories, designed to elevate your personal style.",
+    image: "/assets/projects/project5.jpg",
+    live: "https://sarah-s-accessories-maison.vercel.app/",
+    github: "https://github.com/cruisernation/sarah-s-accessories-maison",
+    tools: ["React", "CSS", "HTML", "JavaScript"],
   },
   {
-    id: "shadowofweb3-content",
-    title: "Content & Thought Leadership @_shadowofweb3",
-    category: "Content",
-    summary:
-      "Web3 threads, product breakdowns, technical explanations, and community driven content.",
-    details:
-      "My X (Twitter) profile highlights consistent Web3 insights, narrative breakdowns, technical discussions, content strategy, and brand clarity posts blending code, blockchain, and communication.",
-    link: "https://x.com/_shadowofweb3",
+    id: "landing-ui",
+    title: "Product Landing UI",
+    description: "Clean landing page UI with focus on layout, typography, and performance.",
+    image: "/assets/projects/landing-ui.png",
+    live: "#",
+    github: "#",
+    tools: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    id: "dashboard-ui",
+    title: "Admin Dashboard UI",
+    description: "Frontend dashboard interface with reusable components and layout system.",
+    image: "/assets/projects/dashboard.png",
+    live: "#",
+    github: "#",
+    tools: ["React", "CSS", "Git"],
   },
 ];
 
 export default function Portfolio() {
-  const [filter, setFilter] = useState("All");
-  const [selected, setSelected] = useState(null);
-
-  const categories = ["All", "Web3", "Frontend", "Content"];
-  const filtered = PROJECTS.filter(
-    (p) => filter === "All" || p.category === filter
-  );
-
   return (
     <section className="portfolio-section">
-      {/* Portfolio Header */}
+      {/* HEADER */}
       <div className="portfolio-header">
-        <div>
-          <h2 className="section-title">Work Done</h2>
-          <p className="section-sub">
-            A curated mix of frontend builds, strategic content, and upcoming Web3
-            case studies.
-          </p>
-        </div>
-
-        <div className="filter-row">
-          {categories.map((c) => (
-            <button
-              key={c}
-              className={`pill ${filter === c ? "active" : ""}`}
-              onClick={() => setFilter(c)}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
+        <h2 className="section-title">Projects</h2>
+        <p className="section-sub">
+          Selected frontend projects focused on performance, clarity, and scalable UI.
+        </p>
       </div>
 
-      {/* Portfolio Grid */}
-      <div className="portfolio-grid">
-        {filtered.map((p, i) => (
-          <article
-            key={p.id}
-            className={`project-card ${p.comingSoon ? "coming-soon" : ""}`}
-            onClick={() => !p.comingSoon && setSelected(p)}
-            style={{ animationDelay: `${i * 70}ms` }}
-            tabIndex={0}
-            onKeyDown={(e) => (e.key === "Enter" && !p.comingSoon ? setSelected(p) : null)}
-            aria-label={p.title}
-          >
-            <div className="card-top">
-              <div className="card-icon">
-                {p.category === "Web3" ? (
-                  <FaCubes />
-                ) : p.category === "Frontend" ? (
-                  <FaCode />
-                ) : (
-                  <FaPenNib />
-                )}
+      {/* FEATURED PROJECTS */}
+      <div className="featured-projects">
+        {FEATURED_PROJECTS.map((p) => (
+          <article key={p.id} className="featured-card">
+            <img
+              src={p.image}
+              alt={p.title}
+              className="project-image"
+              loading="lazy"
+            />
+
+            <div className="project-content">
+              <h3>{p.title}</h3>
+              <p>{p.description}</p>
+
+              <div className="tool-list">
+                {p.tools.map((tool) => (
+                  <span key={tool} className="tool-badge">
+                    {tool}
+                  </span>
+                ))}
               </div>
-              <h3 className="project-title">{p.title}</h3>
-            </div>
 
-            <p className="project-summary">{p.summary}</p>
-
-            <div className="card-meta">
-              <span className="tag">{p.category}</span>
-              {!p.comingSoon && (
+              <div className="project-actions">
                 <a
-                  className="project-live-link"
-                  href={p.link}
+                  href={p.live}
                   target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
+                  rel="noreferrer"
+                  className="btn primary"
                 >
-                  Visit live <FiExternalLink />
+                  Live Demo <FiExternalLink />
                 </a>
-              )}
+                <a
+                  href={p.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn ghost"
+                >
+                  GitHub <FiGithub />
+                </a>
+              </div>
             </div>
           </article>
         ))}
       </div>
 
-      {/* Modal */}
-      {selected && (
-        <div className="modal-backdrop" onClick={() => setSelected(null)}>
-          <div className="modal-card" onClick={(e) => e.stopPropagation()} role="dialog">
-            <div className="modal-head">
-              <h3>{selected.title}</h3>
-              {selected.link && (
-                <a
-                  className="modal-live-cta"
-                  href={selected.link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Visit Live Project <FiExternalLink />
-                </a>
-              )}
+      {/* OTHER PROJECTS */}
+      <div className="portfolio-grid">
+        {OTHER_PROJECTS.map((p) => (
+          <article key={p.id} className="project-card">
+            <img
+              src={p.image}
+              alt={p.title}
+              className="project-image small"
+              loading="lazy"
+            />
+
+            <h4>{p.title}</h4>
+            <p>{p.description}</p>
+
+            <div className="tool-list">
+              {p.tools.map((tool) => (
+                <span key={tool} className="tool-badge">
+                  {tool}
+                </span>
+              ))}
             </div>
 
-            <p className="modal-summary">{selected.details}</p>
-
-            <div className="modal-actions">
-              <button className="btn btn-ghost" onClick={() => setSelected(null)}>
-                Close
-              </button>
+            <div className="project-actions">
+              <a
+                href={p.live}
+                target="_blank"
+                rel="noreferrer"
+                className="btn small primary"
+              >
+                Live
+              </a>
+              <a
+                href={p.github}
+                target="_blank"
+                rel="noreferrer"
+                className="btn small ghost"
+              >
+                GitHub
+              </a>
             </div>
-          </div>
-        </div>
-      )}
+          </article>
+        ))}
+      </div>
     </section>
   );
 }
