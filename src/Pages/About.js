@@ -2,7 +2,7 @@ import React from "react";
 
 export default function About() {
   const stats = [
-    { label: "Years of Experience", value: "1+" },
+    { label: "Years of Experience", value: "2+" },
     { label: "Projects Completed", value: "4+" },
     { label: "Languages Spoken", value: "English, Yoruba" },
   ];
